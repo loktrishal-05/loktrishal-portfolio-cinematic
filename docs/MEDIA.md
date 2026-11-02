@@ -1,7 +1,7 @@
-# Current media provenance
+# Current media
 
-The owner rejected the avatar entry film. Shipped MP4/WebM files, film posters and avatar image were removed. Source files in Downloads remain untouched.
+Original procedural Three.js orbital sculpture and its actual rendered fallback still. No avatar film, video or source photograph ships.
 
-scene.js builds original torus ribbons, a central jewel, cobalt edges and orbiting plates. Lighting and contact shadow are generated locally. public/brand/kinetic-poster.webp is rendered from this actual scene, not borrowed or AI-generated artwork.
+Six optimized cinematic project illustrations come from the owner's GitHub profile, with explicit concept-art captions; see CONTENT.md. New generation was unnecessary because all six existed.
 
-Project media retains prior source evidence and explicit concept-art captions; see CONTENT.md. Self-hosted fonts retain OFL licenses. No new generated video is required.
+Sixteen certificate documents are now published as requested and linked from the compact gallery. PDFs are unchanged; image copies are optimized with orientation corrected. Local originals remain untouched.

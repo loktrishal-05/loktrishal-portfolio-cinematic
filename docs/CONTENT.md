@@ -1,44 +1,15 @@
-# Content and image provenance
+# Current content and image provenance
 
-The new portfolio's public copy is centralized in `data/copy.en.json`. It carries 13 projects, six skill groups, and 16 distinct credential/achievement records. The existing portfolio source and its supplied certificate transcription were read without modifying the old project or its GitHub repository.
+13 projects, six skill domains and 16 distinct credentials remain in data/copy.en.json. Course completion, participation, appreciation and awards retain their original distinctions. Undated evidence remains undated. Synthetic-data and prototype limitations remain explicit. Skills are regrouped into Frontend, Backend, Databases, AI & machine learning, Data & analytics and DevOps & tools; language skills are retained in their relevant domains.
 
-## Source material
+## Project art
+All six featured images are existing owner-supplied concept art from the public profile repository, not invented application screenshots. The user explicitly requested these in place of screenshots. Sources follow:
 
-- Existing content refresh: `loktrishal-portfolio/index.html` and `data/certificates.json` from the owner's previous working copy.
-- Public repositories and default branches were checked through the GitHub API on 2 November 2026.
-- The project descriptions preserve their original boundaries: KinSight uses fictional synthetic people/results; Solarda's hosted site is a UI preview with replayed data; eRTMAC-NWIS is an advisory synthetic-data prototype; the legal platform is still in development.
-- ResumeForge, PeopleRamp, GhostIQ, SentinelPay and OnboardIQ are retained as earlier work. Their current operational status is not newly certified. The Amazon Sales dashboard remains an analytics project.
-- The supplied certificates were previously inspected and deduplicated: `3.png` and `4.png` contain the same Programming using Java certificate. Participation is not promoted to an award. OfficeMaster's PowerBI workshop is not presented as a Microsoft professional certification. The ambiguous MIT placing is omitted.
-- No private source photograph, original certificate file, credential identifier, QR payload or private filesystem path is published in the data file.
-- Education and contact details are owner-supplied facts from the earlier portfolio; no updated GPA is invented.
+https://raw.githubusercontent.com/loktrishal-05/loktrishal-05/main/assets/project-{id}-3d.jpg
 
-## Project image provenance
+IDs: kinsight, solarda, exodetect, legal, nwis, edunova. Optimized local assets: public/projects/{id}-art.webp, 1440x480. Every image has a concept-illustration caption and matching accessible description. No additional AI generation was needed.
 
-All six published images are optimized WebP files. The source media belongs to the owner's public project/profile repositories or was captured from the owner's hosted application. No UI screenshot was invented.
+## Supporting certificates
+The owner requested clickable original evidence. public/certificates/ contains all 16 matched supporting records: credentials 1 and 13 are byte-identical PDFs; the other 14 are oriented WebP copies with a maximum 1200px long edge. Originals in My details/infosis were not changed; hashes were checked. Duplicate Programming using Java evidence 3.png/4.png is counted once. Visible credential identifiers/QR codes are retained in the published document copies.
 
-| Asset | Source | Meaning |
-| --- | --- | --- |
-| `public/projects/kinsight.webp` | https://raw.githubusercontent.com/loktrishal-05/kinsight/main/docs/screenshots/01-landing.jpg | Actual KinSight landing screenshot from the project documentation |
-| `public/projects/solarda.webp` | https://raw.githubusercontent.com/loktrishal-05/Solar-Da/main/evidence/screenshots/agent_console_disease_trace.jpg | Actual replay-mode Agent Console screenshot from the project evidence |
-| `public/projects/exodetect.webp` | https://exodetect-isro-bah.netlify.app | Actual application screenshot captured at 1440 x 900, 2 November 2026 |
-| `public/projects/edunova.webp` | https://edu-nova-dun.vercel.app | Actual landing screenshot captured at 1440 x 900, 2 November 2026 |
-| `public/projects/legal.webp` | https://raw.githubusercontent.com/loktrishal-05/loktrishal-05/main/assets/project-legal-3d.jpg | Existing concept illustration from the owner's profile; explicitly captioned as concept art, not an application screenshot |
-| `public/projects/nwis.webp` | https://raw.githubusercontent.com/loktrishal-05/loktrishal-05/main/assets/project-nwis-3d.jpg | Existing concept illustration from the owner's profile; explicitly captioned as concept art for a synthetic-data prototype |
-
-The avatar and video are handled separately in `docs/MEDIA.md`. Project screenshots are not evidence that all functionality described in a repository is deployed, and captions/status text keep that distinction visible.
-
-## Data contract
-
-Top-level objects: `profile`, `navigation`, `hero`, `about`, `skills`, `projects`, `credentials`, `contact`, `labels`, `meta`.
-
-Each project includes an ID, title/short title, detailed category, filter group, year label, description, technology list, status, source/demo links, optional image, accessible image description, provenance caption, dimensions and featured flag. The six recent projects are featured; the additional seven remain available in the full collection. Filters use three broad groups to avoid a chip for every domain.
-
-Credential categories distinguish Certification, Participation, Award and Recognition. Dates are omitted when the supplied certificate has no complete date. Dated multi-day event records use the final event day rather than claiming an issue date.
-
-All newly authored punctuation uses ASCII where appropriate to avoid PowerShell stdin encoding corruption. Original correctly encoded certificate/project titles are preserved as UTF-8.
-
-## Checks performed
-
-Assert-based checks verified: 13 unique project IDs; 16 credential records; six skill groups; at least one source/demo link for each project; exactly six optimized project WebP images; every featured image at least 960 pixels wide; no accidental replacement question marks in authored strings. The one intentional question mark is the contact heading.
-
-Original full-resolution screenshot capture PNGs were removed from the new project's public assets after successful WebP conversion. The downloaded/generated original inputs elsewhere on the owner's machine were not changed.
+Asset URLs are in data/certificates.json and copy.en.json. Existing titles, issuers and dates are unchanged. No private source photograph or private filesystem path is published in JSON.

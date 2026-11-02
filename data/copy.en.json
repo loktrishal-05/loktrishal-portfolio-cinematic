@@ -39,7 +39,7 @@
     "titleLines": [
       "LOKTRISHAL"
     ],
-    "description": "I turn complex ideas into intelligent, useful digital experiences. AI, data science and full-stack engineering, from Chennai to wherever the work takes me.",
+    "description": "AI, data science and full-stack engineering. Based in Chennai. Open to internships and collaboration.",
     "primaryCta": "Discover the work",
     "secondaryCta": "Let's talk",
     "sceneBeats": [
@@ -52,7 +52,33 @@
         "body": "From a difficult question to something people can understand and use."
       }
     ],
-    "displayName": "LOKTRISHAL"
+    "displayName": "LOKTRISHAL",
+    "terminal": [
+      [
+        "role",
+        "AI & full-stack developer"
+      ],
+      [
+        "frontend",
+        "React / Next.js / TypeScript"
+      ],
+      [
+        "backend",
+        "Python / FastAPI / Node.js"
+      ],
+      [
+        "intelligence",
+        "LangGraph / RAG / Gemini"
+      ],
+      [
+        "data",
+        "SQL / PostgreSQL / MongoDB"
+      ],
+      [
+        "status",
+        "Open to opportunities"
+      ]
+    ]
   },
   "about": {
     "heading": "Curiosity, made useful.",
@@ -61,6 +87,11 @@
       "I'm a B.Tech Artificial Intelligence & Data Science student at R.M.K. College of Engineering & Technology in Chennai. I enjoy the whole path from a difficult question to an experience someone can understand and use.",
       "My work moves between machine learning, evidence-grounded agents and full-stack engineering. Recent projects explore inherited-risk education, safer agriculture, exoplanet detection and document intelligence.",
       "I care about clear explanations, privacy, reproducibility and human judgement. A fictional demo, a prototype and an operational product deserve different claims, and I keep those boundaries visible."
+    ],
+    "points": [
+      "B.Tech in Artificial Intelligence & Data Science, R.M.K. College of Engineering & Technology.",
+      "Building AI agents, machine-learning systems and full-stack applications.",
+      "Exploring healthcare, agriculture, space science and document intelligence."
     ]
   },
   "skills": [
@@ -77,7 +108,8 @@
         "GSAP",
         "Three.js",
         "React Three Fiber",
-        "Zustand"
+        "Zustand",
+        "JavaScript"
       ]
     },
     {
@@ -88,11 +120,21 @@
         "Node.js",
         "Express",
         "REST APIs",
+        "Document extraction",
+        "Python",
+        "Java"
+      ]
+    },
+    {
+      "name": "Databases",
+      "description": "Relational, document, vector and geospatial data.",
+      "items": [
         "PostgreSQL",
         "PostGIS",
         "Supabase",
         "MongoDB",
-        "Document extraction"
+        "Qdrant",
+        "Oracle SQL"
       ]
     },
     {
@@ -103,7 +145,6 @@
         "LangChain",
         "Gemini API",
         "RAG",
-        "Qdrant",
         "XGBoost",
         "ONNX",
         "Computer vision",
@@ -116,13 +157,11 @@
       "description": "SQL, geospatial analysis and interactive dashboards, supported by Oracle SQL and NPTEL GIS credentials.",
       "items": [
         "SQL",
-        "Oracle SQL",
         "Power BI",
         "Pandas",
         "NumPy",
         "DAX",
         "GIS",
-        "PostGIS",
         "Data visualisation"
       ]
     },
@@ -138,19 +177,6 @@
         "Render",
         "pytest",
         "Playwright"
-      ]
-    },
-    {
-      "name": "Languages",
-      "description": "Languages used across application interfaces, APIs and analytical pipelines, with certified Java foundations.",
-      "items": [
-        "Python",
-        "TypeScript",
-        "JavaScript",
-        "SQL",
-        "Java",
-        "HTML",
-        "CSS"
       ]
     }
   ],
@@ -172,13 +198,17 @@
       "status": "Fictional demo",
       "source": "https://github.com/loktrishal-05/kinsight",
       "demo": "https://kinsight-five.vercel.app",
-      "image": "/projects/kinsight.webp",
-      "imageAlt": "KinSight — Inherited-Risk Navigator application screenshot",
+      "image": "/projects/kinsight-art.webp",
+      "imageAlt": "KinSight concept illustration, not a screenshot of the application",
       "featured": true,
-      "imageCaption": "Application screenshot",
+      "imageCaption": "Project concept illustration",
       "filterGroup": "Web & product",
       "imageWidth": 1440,
-      "imageHeight": 900
+      "imageHeight": 480,
+      "points": [
+        "Seven-language screening navigator with consent, referrals and a counsellor console.",
+        "Chat/voice guidance and traceable audit trail; all people and results are synthetic."
+      ]
     },
     {
       "id": "solarda",
@@ -198,13 +228,17 @@
       "status": "UI preview",
       "source": "https://github.com/loktrishal-05/Solar-Da",
       "demo": "https://solarda.vercel.app",
-      "image": "/projects/solarda.webp",
-      "imageAlt": "Solarda — Agentic Smart Agriculture application screenshot",
+      "image": "/projects/solarda-art.webp",
+      "imageAlt": "Solarda concept illustration, not a screenshot of the application",
       "featured": true,
-      "imageCaption": "Application screenshot",
+      "imageCaption": "Project concept illustration",
       "filterGroup": "AI & ML",
       "imageWidth": 1440,
-      "imageHeight": 632
+      "imageHeight": 480,
+      "points": [
+        "Farm agents for irrigation, disease vision and sensor forecasting.",
+        "Human approval and safety checks; hosted UI uses replayed data and needs a backend for agent features."
+      ]
     },
     {
       "id": "exodetect",
@@ -223,13 +257,17 @@
       "status": "Browser model demo",
       "source": "https://github.com/loktrishal-05/exoplanet-detection",
       "demo": "https://exodetect-isro-bah.netlify.app",
-      "image": "/projects/exodetect.webp",
-      "imageAlt": "ExoDetect — Exoplanet Detection application screenshot",
+      "image": "/projects/exodetect-art.webp",
+      "imageAlt": "ExoDetect concept illustration, not a screenshot of the application",
       "featured": true,
-      "imageCaption": "Application screenshot",
+      "imageCaption": "Project concept illustration",
       "filterGroup": "AI & ML",
       "imageWidth": 1440,
-      "imageHeight": 900
+      "imageHeight": 480,
+      "points": [
+        "Kepler light-curve features and calibrated XGBoost classification.",
+        "Browser ONNX inference; heavy light-curve analysis remains in Python."
+      ]
     },
     {
       "id": "legal",
@@ -248,13 +286,17 @@
       "status": "In development",
       "source": "https://github.com/loktrishal-05/legal-compliance-regulatory-workbench",
       "demo": null,
-      "image": "/projects/legal.webp",
-      "imageAlt": "Concept illustration for Legal & Regulatory Assurance Platform, not a screenshot of the application",
+      "image": "/projects/legal-art.webp",
+      "imageAlt": "Legal intelligence concept illustration, not a screenshot of the application",
       "featured": true,
-      "imageCaption": "Concept illustration - in development",
+      "imageCaption": "Project concept illustration",
       "filterGroup": "AI & ML",
       "imageWidth": 1440,
-      "imageHeight": 480
+      "imageHeight": 480,
+      "points": [
+        "Document intelligence for legal research and analysis.",
+        "In development; inspect the source for current capabilities."
+      ]
     },
     {
       "id": "nwis",
@@ -274,13 +316,17 @@
       "status": "Synthetic prototype",
       "source": "https://github.com/loktrishal-05/ertmac-nwis",
       "demo": null,
-      "image": "/projects/nwis.webp",
-      "imageAlt": "Concept illustration for eRTMAC-NWIS — Nearby Wells Intelligence, not a screenshot of the application",
+      "image": "/projects/nwis-art.webp",
+      "imageAlt": "Nearby wells concept illustration, not a screenshot of the application",
       "featured": true,
-      "imageCaption": "Concept illustration - synthetic-data prototype",
+      "imageCaption": "Project concept illustration",
       "filterGroup": "AI & ML",
       "imageWidth": 1440,
-      "imageHeight": 480
+      "imageHeight": 480,
+      "points": [
+        "Geospatial groundwater intelligence and advisory exploration.",
+        "Synthetic-data prototype; not an operational decision system."
+      ]
     },
     {
       "id": "edunova",
@@ -300,13 +346,17 @@
       "status": "Learning demo",
       "source": "https://github.com/loktrishal-05/EduNova",
       "demo": "https://edu-nova-dun.vercel.app",
-      "image": "/projects/edunova.webp",
-      "imageAlt": "EduNova — Gamified Science Learning application screenshot",
+      "image": "/projects/edunova-art.webp",
+      "imageAlt": "EduNova concept illustration, not a screenshot of the application",
       "featured": true,
-      "imageCaption": "Application screenshot",
+      "imageCaption": "Project concept illustration",
       "filterGroup": "Web & product",
       "imageWidth": 1440,
-      "imageHeight": 900
+      "imageHeight": 480,
+      "points": [
+        "Biology, chemistry and physics worlds with video quests and quizzes.",
+        "Interactive Three.js/R3F scenes, plus parent and teacher views."
+      ]
     },
     {
       "id": "sri-ambal",
@@ -464,7 +514,8 @@
       "date": "2026-10-11",
       "id": "credential-1",
       "type": "Award",
-      "category": "Award"
+      "category": "Award",
+      "asset": "/certificates/credential-1.pdf"
     },
     {
       "title": "PrototypeX — Winner, IES Summit 2026",
@@ -472,7 +523,8 @@
       "date": "2026-09-18",
       "id": "credential-2",
       "type": "Award",
-      "category": "Award"
+      "category": "Award",
+      "asset": "/certificates/credential-2.webp"
     },
     {
       "title": "Oracle AI Database SQL Certified Associate",
@@ -480,14 +532,16 @@
       "date": "2026-08-18",
       "id": "credential-3",
       "type": "Certification",
-      "category": "Certification"
+      "category": "Certification",
+      "asset": "/certificates/credential-3.webp"
     },
     {
       "title": "Geographic Information Systems — Elite, 68% (12-week course, Jan–Apr 2026)",
       "issuer": "NPTEL / IIT Roorkee",
       "id": "credential-4",
       "type": "Certification",
-      "category": "Certification"
+      "category": "Certification",
+      "asset": "/certificates/credential-4.webp"
     },
     {
       "title": "Introduction to Deep Learning",
@@ -495,7 +549,8 @@
       "date": "2026-07-23",
       "id": "credential-5",
       "type": "Certification",
-      "category": "Certification"
+      "category": "Certification",
+      "asset": "/certificates/credential-5.webp"
     },
     {
       "title": "Java Foundation Certification",
@@ -503,7 +558,8 @@
       "date": "2025-04-20",
       "id": "credential-6",
       "type": "Certification",
-      "category": "Certification"
+      "category": "Certification",
+      "asset": "/certificates/credential-6.webp"
     },
     {
       "title": "Programming using Java",
@@ -511,7 +567,8 @@
       "date": "2025-04-20",
       "id": "credential-7",
       "type": "Certification",
-      "category": "Certification"
+      "category": "Certification",
+      "asset": "/certificates/credential-7.webp"
     },
     {
       "title": "Basics of Python",
@@ -519,7 +576,8 @@
       "date": "2025-04-20",
       "id": "credential-8",
       "type": "Certification",
-      "category": "Certification"
+      "category": "Certification",
+      "asset": "/certificates/credential-8.webp"
     },
     {
       "title": "Software Engineering and Agile Software development",
@@ -527,7 +585,8 @@
       "date": "2024-12-02",
       "id": "credential-9",
       "type": "Certification",
-      "category": "Certification"
+      "category": "Certification",
+      "asset": "/certificates/credential-9.webp"
     },
     {
       "title": "AI for Beginners",
@@ -535,7 +594,8 @@
       "date": "2025-07-26",
       "id": "credential-10",
       "type": "Certification",
-      "category": "Certification"
+      "category": "Certification",
+      "asset": "/certificates/credential-10.webp"
     },
     {
       "title": "PowerBI Workshop — Completion",
@@ -543,14 +603,16 @@
       "date": "2025-08-10",
       "id": "credential-11",
       "type": "Certification",
-      "category": "Certification"
+      "category": "Certification",
+      "asset": "/certificates/credential-11.webp"
     },
     {
       "title": "Bharatiya Antariksh Hackathon 2026 — Participation and successful idea submission",
       "issuer": "ISRO / Hack2skill",
       "id": "credential-12",
       "type": "Participation",
-      "category": "Participation"
+      "category": "Participation",
+      "asset": "/certificates/credential-12.webp"
     },
     {
       "title": "HackWithHyderabad 3.0 — Participation (Microsoft Office, Hyderabad)",
@@ -558,14 +620,16 @@
       "date": "2026-10-03",
       "id": "credential-13",
       "type": "Participation",
-      "category": "Participation"
+      "category": "Participation",
+      "asset": "/certificates/credential-13.pdf"
     },
     {
       "title": "DECODE SIH 2026 — Participation",
       "issuer": "OSCode",
       "id": "credential-14",
       "type": "Participation",
-      "category": "Participation"
+      "category": "Participation",
+      "asset": "/certificates/credential-14.webp"
     },
     {
       "title": "DEV HOURS National Level Codeathon — Participation",
@@ -573,14 +637,16 @@
       "date": "2026-02-21",
       "id": "credential-15",
       "type": "Participation",
-      "category": "Participation"
+      "category": "Participation",
+      "asset": "/certificates/credential-15.webp"
     },
     {
       "title": "MET Escape Room, Chakravyuha ’26 — Certificate of Appreciation",
       "issuer": "MITMeT, Madras Institute of Technology, Anna University",
       "id": "credential-16",
       "type": "Recognition",
-      "category": "Recognition"
+      "category": "Recognition",
+      "asset": "/certificates/credential-16.webp"
     }
   ],
   "contact": {
@@ -611,8 +677,8 @@
     "skillsHeading": "One connected toolkit.",
     "credentialsHeading": "Learning leaves a trace.",
     "filterLabel": "Filter projects",
-    "credentialsDescription": "Professional certifications, course completions and competition recognition, transcribed from my supplied certificates.",
-    "credentialsNote": "Course completion, participation and awards are labelled individually. Dates are completion or event dates where provided.",
+    "credentialsDescription": "16 milestones. Explore the cards and open the original certificates.",
+    "credentialsNote": "Awards, participation and course completions are labelled individually.",
     "projectNote": "Demo and prototype limits are included in each project description.",
     "featuredLabel": "Selected project",
     "projectImageFallback": "Explore the project source for implementation details.",
@@ -632,7 +698,7 @@
     "backToTop": "Back to top",
     "copyright": "Copyright 2026 Loktrishal K",
     "aboutLabel": "About me",
-    "workDescription": "Different worlds. Connected thinking. Scroll through six recent explorations.",
+    "workDescription": "Six projects. Six different worlds.",
     "recognitionLabel": "Recognition",
     "seeAllCredentials": "See all credentials",
     "scrollHint": "Scroll to unfold",
@@ -660,12 +726,19 @@
     "selectedFirst": "Selected",
     "selectedSecond": "work.",
     "statementCaption": "A little curiosity. A lot of connecting the dots.",
-    "toolkitAside": "The tools change.\nThe curiosity stays.",
+    "toolkitAside": "Choose a domain. Explore the stack.",
     "recognitionFirst": "Learning",
     "recognitionSecond": "leaves a trace.",
     "contactFirst": "Let's make",
     "contactSecond": "something",
-    "contactEmphasis": "matter."
+    "contactEmphasis": "matter.",
+    "aboutPointLabel": "At a glance",
+    "terminalTitle": "loktrishal.dev / profile",
+    "viewCertificate": "View certificate",
+    "previousCertificates": "Previous certificates",
+    "nextCertificates": "Next certificates",
+    "certificateBrowse": "16 credentials / swipe to explore",
+    "terminalPrompt": "> building what comes next"
   },
   "meta": {
     "title": "Loktrishal K - AI, Data Science & Full-stack Developer",

@@ -10,7 +10,7 @@ for (const source of ['index.html', 'styles.css', 'app.js', 'public', 'data/copy
 }
 await rm(output, { recursive: true, force: true });
 await mkdir(output, { recursive: true });
-for (const source of ['index.html', 'styles.css']) {
+for (const source of ['index.html', 'styles.css', 'refinements.css']) {
   await cp(resolve(root, source), resolve(output, source));
 }
 await cp(resolve(root, 'public'), output, { recursive: true });

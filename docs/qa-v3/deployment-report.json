@@ -1,0 +1,96 @@
+{
+  "base": "https://zippy-amber-vaqjahm.tmp.now",
+  "widths": [
+    {
+      "width": 360,
+      "errors": [],
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "width": 768,
+      "errors": [],
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "width": 1280,
+      "errors": [],
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "width": 1920,
+      "errors": [],
+      "overflow": false,
+      "axe": []
+    }
+  ],
+  "certificates": [
+    {
+      "path": "/certificates/credential-1.pdf",
+      "status": 200
+    },
+    {
+      "path": "/certificates/credential-2.webp",
+      "status": 200
+    },
+    {
+      "path": "/certificates/credential-3.webp",
+      "status": 200
+    },
+    {
+      "path": "/certificates/credential-4.webp",
+      "status": 200
+    },
+    {
+      "path": "/certificates/credential-5.webp",
+      "status": 200
+    },
+    {
+      "path": "/certificates/credential-6.webp",
+      "status": 200
+    },
+    {
+      "path": "/certificates/credential-7.webp",
+      "status": 200
+    },
+    {
+      "path": "/certificates/credential-8.webp",
+      "status": 200
+    },
+    {
+      "path": "/certificates/credential-9.webp",
+      "status": 200
+    },
+    {
+      "path": "/certificates/credential-10.webp",
+      "status": 200
+    },
+    {
+      "path": "/certificates/credential-11.webp",
+      "status": 200
+    },
+    {
+      "path": "/certificates/credential-12.webp",
+      "status": 200
+    },
+    {
+      "path": "/certificates/credential-13.pdf",
+      "status": 200
+    },
+    {
+      "path": "/certificates/credential-14.webp",
+      "status": 200
+    },
+    {
+      "path": "/certificates/credential-15.webp",
+      "status": 200
+    },
+    {
+      "path": "/certificates/credential-16.webp",
+      "status": 200
+    }
+  ],
+  "reducedMotion": "passed"
+}

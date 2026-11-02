@@ -5,7 +5,8 @@
     "date": "2026-10-11",
     "id": "credential-1",
     "type": "Award",
-    "category": "Award"
+    "category": "Award",
+    "asset": "/certificates/credential-1.pdf"
   },
   {
     "title": "PrototypeX — Winner, IES Summit 2026",
@@ -13,7 +14,8 @@
     "date": "2026-09-18",
     "id": "credential-2",
     "type": "Award",
-    "category": "Award"
+    "category": "Award",
+    "asset": "/certificates/credential-2.webp"
   },
   {
     "title": "Oracle AI Database SQL Certified Associate",
@@ -21,14 +23,16 @@
     "date": "2026-08-18",
     "id": "credential-3",
     "type": "Certification",
-    "category": "Certification"
+    "category": "Certification",
+    "asset": "/certificates/credential-3.webp"
   },
   {
     "title": "Geographic Information Systems — Elite, 68% (12-week course, Jan–Apr 2026)",
     "issuer": "NPTEL / IIT Roorkee",
     "id": "credential-4",
     "type": "Certification",
-    "category": "Certification"
+    "category": "Certification",
+    "asset": "/certificates/credential-4.webp"
   },
   {
     "title": "Introduction to Deep Learning",
@@ -36,7 +40,8 @@
     "date": "2026-07-23",
     "id": "credential-5",
     "type": "Certification",
-    "category": "Certification"
+    "category": "Certification",
+    "asset": "/certificates/credential-5.webp"
   },
   {
     "title": "Java Foundation Certification",
@@ -44,7 +49,8 @@
     "date": "2025-04-20",
     "id": "credential-6",
     "type": "Certification",
-    "category": "Certification"
+    "category": "Certification",
+    "asset": "/certificates/credential-6.webp"
   },
   {
     "title": "Programming using Java",
@@ -52,7 +58,8 @@
     "date": "2025-04-20",
     "id": "credential-7",
     "type": "Certification",
-    "category": "Certification"
+    "category": "Certification",
+    "asset": "/certificates/credential-7.webp"
   },
   {
     "title": "Basics of Python",
@@ -60,7 +67,8 @@
     "date": "2025-04-20",
     "id": "credential-8",
     "type": "Certification",
-    "category": "Certification"
+    "category": "Certification",
+    "asset": "/certificates/credential-8.webp"
   },
   {
     "title": "Software Engineering and Agile Software development",
@@ -68,7 +76,8 @@
     "date": "2024-12-02",
     "id": "credential-9",
     "type": "Certification",
-    "category": "Certification"
+    "category": "Certification",
+    "asset": "/certificates/credential-9.webp"
   },
   {
     "title": "AI for Beginners",
@@ -76,7 +85,8 @@
     "date": "2025-07-26",
     "id": "credential-10",
     "type": "Certification",
-    "category": "Certification"
+    "category": "Certification",
+    "asset": "/certificates/credential-10.webp"
   },
   {
     "title": "PowerBI Workshop — Completion",
@@ -84,14 +94,16 @@
     "date": "2025-08-10",
     "id": "credential-11",
     "type": "Certification",
-    "category": "Certification"
+    "category": "Certification",
+    "asset": "/certificates/credential-11.webp"
   },
   {
     "title": "Bharatiya Antariksh Hackathon 2026 — Participation and successful idea submission",
     "issuer": "ISRO / Hack2skill",
     "id": "credential-12",
     "type": "Participation",
-    "category": "Participation"
+    "category": "Participation",
+    "asset": "/certificates/credential-12.webp"
   },
   {
     "title": "HackWithHyderabad 3.0 — Participation (Microsoft Office, Hyderabad)",
@@ -99,14 +111,16 @@
     "date": "2026-10-03",
     "id": "credential-13",
     "type": "Participation",
-    "category": "Participation"
+    "category": "Participation",
+    "asset": "/certificates/credential-13.pdf"
   },
   {
     "title": "DECODE SIH 2026 — Participation",
     "issuer": "OSCode",
     "id": "credential-14",
     "type": "Participation",
-    "category": "Participation"
+    "category": "Participation",
+    "asset": "/certificates/credential-14.webp"
   },
   {
     "title": "DEV HOURS National Level Codeathon — Participation",
@@ -114,13 +128,15 @@
     "date": "2026-02-21",
     "id": "credential-15",
     "type": "Participation",
-    "category": "Participation"
+    "category": "Participation",
+    "asset": "/certificates/credential-15.webp"
   },
   {
     "title": "MET Escape Room, Chakravyuha ’26 — Certificate of Appreciation",
     "issuer": "MITMeT, Madras Institute of Technology, Anna University",
     "id": "credential-16",
     "type": "Recognition",
-    "category": "Recognition"
+    "category": "Recognition",
+    "asset": "/certificates/credential-16.webp"
   }
 ]

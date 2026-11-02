@@ -1,41 +1,28 @@
-# Cinematic 3D revision - checks actually run
+# Current refinement validation
 
-2 November 2026. Supersedes the rejected film-version QA. Local browser: installed Chrome through Playwright; WebGL test uses Chrome's software renderer. This does not establish physical-device GPU frame rate.
+## Actually run
 
-| Actually run | Result / evidence |
+| Check | Result |
 | --- | --- |
-| npm test | 9/9: content integrity, safe links, dates, image provenance, static fallback, motion policy and choreography bounds |
-| npm run build | Static bundled output built successfully; no runtime CDN |
-| Browser widths 360, 768, 1280, 1920px at 1000px height | No horizontal page overflow; six featured projects, 16 recognition records; scene ready |
-| axe WCAG 2 A/AA + 2.1 A/AA at all four widths | Zero detected violations; all visible links/buttons meet the 44px target check |
-| Console / requests at all four widths | Zero errors, zero failed responses, zero video requests |
-| Local LCP observations, same four widths | 556 / 492 / 356 / 348 ms; local desktop observations, not a field performance guarantee |
-| Real hero scroll | Scene open changes 0 to 1, rotation and camera distance change; [28-frame recording](qa-v2/hero-scroll.gif) |
-| Horizontal gallery / short desktop 1440x768 | Project source links visible at y572-616; [screenshot](qa-v2/short-desktop-gallery.png) |
-| Keyboard | Skip link focus and navigation; mobile menu Escape; desktop-to-mobile gallery focus regression checked |
-| Reduced motion | No scene chunk request, no ScrollTriggers; switching preference keeps renderer paused after visibility events |
-| Save-Data | No scene chunk request; static fallback |
-| Missing 3D bundle / WebGL disabled | Real rendered poster stays visible; WebGL-disabled fallback has zero console errors |
-| JSON 503 | Static identity survives, retry restores content |
-| Slow 3G simulation | 400ms latency, 50KB/s: identity/poster visible during loading; complete live scene ready after 26.1s |
-| Persisted pagehide | Synthetic back-forward-cache event preserves initialized state; actual history restoration remains manual |
-| Independent code/browser review | Three P2 lifecycle defects found and fixed: gallery focus cleanup, reduced-motion resume guard, persisted pagehide teardown |
-| Design detector | One scan. Small metadata raised to 11px and tracking reduced. Remaining structural warnings reviewed visually: full-bleed section wrappers have inset children; tight leading is architectural display, not body copy |
-| Public Vercel deployment | Full four-width/five-scenario suite passed on https://swift-eclipse-zuv78aq.tmp.now ; zero console/asset/axe/target/overflow issues; observed LCP 1328 / 384 / 292 / 260ms |
-| Original portfolio isolation | Old remote main remains 935af431f705e69b312e631ad6584e2618f15219; old local checkout clean |
+| npm test | 10 tests pass, including all 16 matching certificate documents |
+| npm run build | Successful static build with refinements.css and certificate assets |
+| Chrome: 360, 768, 1280, 1920px | Zero page overflow, console errors or detected axe WCAG A/AA violations |
+| Hero | Name opacity is 1 at entry; desktop/mobile screenshots inspected; terminal present |
+| Skills | Native summary opens by Enter and exposes skill tags |
+| Certificates | 16 cards, scroll controls move the ribbon, no overflowing card content; all 16 supporting documents return HTTP 200 |
+| Public Vercel build | Same four-width interaction/axe/console/overflow suite passes; all 16 document URLs return HTTP 200; [deployment report](qa-v3/deployment-report.json) |
+| Reduced motion | Static scene fallback and six skill domains confirmed |
+| Short desktop 1440x768 | Reviewer found clipped pinned project links; compact layout fixed and confirmed links at y686-730, inside the viewport |
+| Original portfolio | Old checkout remains clean and is not pushed |
 
-Static contrast measurements: graphite on ground/paper 13.28/14.52:1; muted 5.83/6.38:1; cobalt 5.26/5.75:1; paper on cobalt 5.75:1. All static text pairs pass normal-text AA.
+Proof: [desktop opening](qa-v3/1280-hero.png), [mobile opening](qa-v3/360-hero.png), [project art](qa-v3/1280-work.png), [skills](qa-v3/1280-skills.png), [certificates](qa-v3/1280-certificates.png), [short desktop](qa-v3/1440-short-work.png), [report](qa-v3/report.json).
 
-## Visual evidence
-[Desktop hero](qa-v2/1280-hero.png) - [Mobile hero](qa-v2/360-hero.png) - [Gallery](qa-v2/1920-gallery-0.5.png) - [Recognition](qa-v2/1280-credentials.png). Reports: [viewport/scenario results](qa-v2/qa-report.json), [motion/network results](qa-v2/motion-report.json). The final metadata-size/lifecycle fixes are covered by targeted tests and the deployment confirmation.
+## Not checked / suggested manual checks
 
-## Suggested manual checks - not claimed as run
-| Manual check | Why |
+| Check | Limit |
 | --- | --- |
-| Physical mid-range Android/iPhone GPU and thermal behavior | Software-rendered desktop Chrome is not device performance |
-| Safari / Firefox / screen reader | Only Chrome was automated |
-| Real back/forward history restoration | Only persisted pagehide preservation was exercised |
-| Production Core Web Vitals and real mobile network | Local LCP and throttling are not field measurements |
-| Every third-party demo's full workflow | Portfolio links preserve project status/prototype limits; backends are outside this portfolio change |
+| Physical mobile GPU/thermal behavior | Software-rendered Chrome is not physical device performance |
+| Safari, Firefox and screen readers | This refinement was browser-tested in Chrome |
+| Issuer-side credential verification | Documents were matched to the owner's originals, not revalidated with issuers |
 
-Public confirmation: [deployment results](qa-v2/deployment-report.json). Current screenshots show the public deployment.
+The earlier 3D revision's motion, slow-network, missing-bundle, no-WebGL and lifecycle evidence remains in qa-v2/. Those results are historical and are not presented as new performance measurements for this refinement.

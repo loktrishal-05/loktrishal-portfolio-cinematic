@@ -13,11 +13,11 @@
         "displayName": "paper"
       },
       "ink": {
-        "canonical": "#20252b",
+        "canonical": "#171d26",
         "displayName": "ink"
       },
       "muted": {
-        "canonical": "#535c68",
+        "canonical": "#465264",
         "displayName": "muted"
       },
       "accent": {
@@ -73,7 +73,7 @@
   "components": [],
   "narrative": {
     "northStar": "Intelligence as a kinetic instrument",
-    "overview": "Original live sculpture unfolds into actual project media. Cool porcelain, graphite and cobalt. Replaces rejected avatar-film world.",
+    "overview": "Original 3D sculpture, bold dark name, light developer terminal, cinematic GitHub project illustrations, collapsible skill domains and two-row glass certificate gallery.",
     "keyCharacteristics": [
       "Real 3D",
       "Scroll choreography",

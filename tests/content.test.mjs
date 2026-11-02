@@ -8,6 +8,14 @@ const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const copy = JSON.parse(await readFile(resolve(root, 'data/copy.en.json'), 'utf8'));
 const suppliedCredentials = JSON.parse(await readFile(resolve(root, 'data/certificates.json'), 'utf8'));
 
+test('each certificate card opens a matching local supporting document', async () => {
+  for (const credential of copy.credentials) {
+    assert.match(credential.asset, new RegExp(`^/certificates/${credential.id}\\.(webp|pdf)$`));
+    assert.equal(credential.asset, suppliedCredentials.find(item => item.id === credential.id).asset);
+    assert.ok((await stat(resolve(root, 'public', credential.asset.slice(1)))).size > 0);
+  }
+});
+
 function strings(value, path = '') {
   if (typeof value === 'string') return [{ path, value }];
   if (!value || typeof value !== 'object') return [];

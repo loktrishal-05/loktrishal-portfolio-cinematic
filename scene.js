@@ -117,7 +117,7 @@ export function mountScene({ canvas, onReady = () => {}, onFailure = () => {}, r
     const t = reducedMotion ? 0 : elapsed;
     const drift = t * 0.13;
     assembly.rotation.set(0.18 + pointer.y * 0.12, -0.24 + drift + pose.rotation + pointer.x * 0.18, -0.12 + Math.sin(t * 0.18) * 0.06);
-    assembly.position.set(!mobile && aspect > 1.2 ? 1.25 - pose.open * 0.25 : 0, Math.sin(t * 0.6) * 0.055 + pose.open * 0.1, 0);
+    assembly.position.set(!mobile && aspect > 1.2 ? 0.1 - pose.open * 0.15 : 0, Math.sin(t * 0.6) * 0.055 + pose.open * 0.1, 0);
     const size = mobile ? 0.8 : 0.82;
     assembly.scale.setScalar(size * (1 - pose.open * 0.08));
     rings.forEach(({ group, base }, i) => {

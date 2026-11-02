@@ -22,3 +22,6 @@ Power3.out arrivals; hero scrub 0.8; gallery scrub 0.75; Lenis lerp 0.085 on des
 Six primary sites and direct screenshots: docs/RESEARCH-3D.md and docs/references-v2/. Editable Figma hero: https://www.figma.com/design/FhAXVId6QB3g4fFyVFOED8?node-id=2-2 . Stitch is not available in this session.
 
 No generated media is required. public/brand/kinetic-poster.webp is rendered from our actual scene; project images retain provenance and explicit concept-art captions.
+
+## Owner-directed refinement
+The current design uses darker graphite #171d26, secondary #465264, a light profile terminal, concise bullet copy, six collapsible skill domains and a compact two-row glass certificate ribbon. Project screenshots were replaced with the owner's six existing GitHub concept illustrations. Explicit owner request authorizes glass surfaces and pointer highlights. See DESIGN.md for current implementation.

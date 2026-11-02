@@ -3,8 +3,8 @@
 - Repository: https://github.com/loktrishal-05/loktrishal-portfolio-cinematic
 - Permanent workspace: Desktop/loktrishal-portfolio-cinematic
 - Portable source archive: Desktop/loktrishal-new-portfolio.zip
-- Current preview: https://swift-eclipse-zuv78aq.tmp.now
-- Preview expiry: 2 November 2026, 22:01:03 IST unless claimed.
+- Current preview: https://zippy-amber-vaqjahm.tmp.now
+- Preview expiry: 2 November 2026, 22:34:36 IST unless claimed.
 
 Only this new repository/project is used. The older portfolio remote main remains 935af431f705e69b312e631ad6584e2618f15219, and its local checkout is clean.
 

@@ -44,7 +44,7 @@ function renderWork(copy) {
   list.replaceChildren(...copy.projects.filter(p => p.featured).map((project, index) => {
     const article = element('article', 'project'); article.dataset.project = project.id;
     const figure = element('figure', 'project-media');
-    const imageBox = element('div', 'project-image');
+    const imageBox = element('div', 'project-image glass-card');
     const image = element('img'); image.src = project.image; image.alt = project.imageAlt;
     image.width = project.imageWidth || 1440; image.height = project.imageHeight || 900;
     image.loading = index < 2 ? 'eager' : 'lazy'; image.decoding = 'async';
@@ -54,7 +54,9 @@ function renderWork(copy) {
     const meta = element('div', 'project-meta'); meta.append(element('span', '', `${String(index + 1).padStart(2, '0')} / ${project.category}`), element('span', '', project.year));
     const tech = element('ul', 'project-tech'); tech.setAttribute('aria-label', copy.labels.technology);
     tech.append(...project.tech.map(item => element('li', '', item)));
-    content.append(meta, element('h3', '', project.shortTitle || project.title), element('p', 'project-description', project.description), element('span', 'project-status', project.status), tech, links(project, copy));
+    const points = element('ul', 'project-points');
+    points.append(...(project.points || [project.description]).map(text => element('li', '', text)));
+    content.append(meta, element('h3', '', project.shortTitle || project.title), points, element('span', 'project-status', project.status), tech, links(project, copy));
     article.append(figure, content); return article;
   }));
   list.setAttribute('aria-busy', 'false');
@@ -83,23 +85,42 @@ function renderWork(copy) {
   drawArchive();
 }
 function renderDetails(copy) {
-  $('#about-paragraphs').replaceChildren(...copy.about.paragraphs.map(text => element('p', '', text)));
+  const points = element('ul', 'about-points');
+  points.append(...copy.about.points.map(text => element('li', '', text)));
+  $('#about-paragraphs').replaceChildren(points);
+  $('#terminal-body').replaceChildren(...copy.hero.terminal.map(([label, value]) => {
+    const line = element('div', 'terminal-line'); line.append(element('span', '', label), element('strong', '', value)); return line;
+  }));
   const education = copy.profile.education;
   $('#education').replaceChildren(element('strong', '', education.degree), element('span', '', education.institution), element('span', '', education.graduation));
   $('#skill-list').replaceChildren(...copy.skills.map(skill => {
-    const article = element('article', 'skill'); const items = element('ul'); items.append(...skill.items.map(item => element('li', '', item)));
-    article.append(element('h3', '', skill.name), element('p', '', skill.description), items); return article;
+    const article = element('details', 'skill glass-card');
+    const summary = element('summary'); summary.append(element('span', '', skill.name), element('span', 'skill-count', String(skill.items.length).padStart(2, '0')), element('span', 'skill-plus', '+'));
+    const items = element('ul', 'skill-tags'); items.append(...skill.items.map(item => element('li', '', item)));
+    article.append(summary, items); return article;
   }));
   const formatter = new Intl.DateTimeFormat('en', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' });
   $('#credential-list').replaceChildren(...copy.credentials.map(item => {
-    const row = element('article', 'credential'); const title = element('div');
+    const row = element('a', 'credential glass-card'); row.href = item.asset; row.target = '_blank'; row.rel = 'noopener noreferrer';
+    const title = element('div');
     title.append(element('span', 'credential-type', item.type), element('h3', '', item.title)); row.append(title, element('p', '', item.issuer));
     if (item.date && /^\d{4}-\d{2}-\d{2}$/.test(item.date)) {
       const date = new Date(`${item.date}T00:00:00Z`);
       if (!Number.isNaN(date.valueOf())) { const time = element('time', '', formatter.format(date)); time.dateTime = item.date; row.append(time); }
     }
+    row.append(element('span', 'certificate-action', copy.labels.viewCertificate), arrow());
     return row;
   }));
+  const ribbon = $('#credential-list');
+  for (const [id, direction] of [['certificate-prev', -1], ['certificate-next', 1]]) {
+    $(`#${id}`).addEventListener('click', () => ribbon.scrollBy({ left: direction * ribbon.clientWidth * 0.8, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' }));
+  }
+  const glow = event => {
+    const box = event.currentTarget.getBoundingClientRect();
+    event.currentTarget.style.setProperty('--pointer-x', `${event.clientX - box.left}px`);
+    event.currentTarget.style.setProperty('--pointer-y', `${event.clientY - box.top}px`);
+  };
+  document.querySelectorAll('.glass-card').forEach(card => card.addEventListener('pointermove', glow, { passive: true }));
 }
 function navigation(copy) {
   const toggle = $('#menu-toggle'), nav = $('#mobile-nav');
@@ -166,12 +187,12 @@ async function setupExperience(copy) {
     if (context.conditions.reduce) return;
     let focusGallery;
     const intro = gsap.timeline({ defaults: { ease: 'power3.out' } });
-    intro.from('.hero-name', { y: 65, opacity: 0.35, duration: 1.3, clearProps: 'opacity' })
-      .from('.hero-intro,.hero-coordinate,.hero-bottom', { y: 20, opacity: 0.5, duration: 0.8, stagger: 0.08 }, '-=.8');
+    intro.from('.hero-name', { y: 35, duration: 1.1 })
+      .from('.hero-intro,.hero-terminal,.hero-bottom', { y: 20, duration: 0.8, stagger: 0.08 }, '-=.8');
     if (context.conditions.wide) {
       const hero = gsap.timeline({ scrollTrigger: { id: 'hero', trigger: '#top', pin: '.hero-stage', start: 'top top', end: 'bottom bottom', scrub: 0.8, invalidateOnRefresh: true, onUpdate: self => sculpture?.setProgress(self.progress) } });
       hero.to('.hero-name', { yPercent: -95, scale: 0.93, opacity: 0, duration: 0.6, ease: 'none' }, 0)
-        .to('.hero-intro,.hero-coordinate', { y: -65, autoAlpha: 0, duration: 0.35 }, 0)
+        .to('.hero-intro,.hero-coordinate,.hero-terminal', { y: -65, autoAlpha: 0, duration: 0.35 }, 0)
         .fromTo('.hero-story', { y: 90, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.45 }, 0.32)
         .to('.hero-story', { y: -65, autoAlpha: 0, duration: 0.25 }, 0.92)
         .to('.hero-progress span', { scaleX: 1, duration: 1.2, ease: 'none' }, 0);
