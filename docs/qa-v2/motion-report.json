@@ -1,0 +1,43 @@
+{
+  "actualSceneMotion": {
+    "initial": {
+      "progress": 6.535943440559843e-7,
+      "open": 0,
+      "rotation": 0.0000027719917061140624,
+      "distance": 8.899999444444807,
+      "paused": false
+    },
+    "final": {
+      "progress": 1,
+      "open": 1,
+      "rotation": 4.241150082346221,
+      "distance": 8.05,
+      "paused": false
+    },
+    "frames": 28
+  },
+  "shortDesktopLinks": {
+    "x": 50,
+    "y": 572.296875,
+    "width": 867.1875,
+    "height": 44
+  },
+  "lifecycle": {
+    "resizeFocus": "passed",
+    "reducedMotionRemainsPaused": "passed",
+    "persistedPagehide": "state preserved",
+    "errors": []
+  },
+  "slow3G": {
+    "latencyMs": 400,
+    "bytesPerSecond": 50000,
+    "readyMs": 26112,
+    "staticIdentityVisible": true,
+    "posterVisibleDuringLoad": true,
+    "finalScene": "ready"
+  },
+  "noWebGL": {
+    "fallback": true,
+    "errors": []
+  }
+}

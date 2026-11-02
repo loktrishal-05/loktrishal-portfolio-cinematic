@@ -1,25 +1,31 @@
 # New portfolio deployment
 
-- New repository: https://github.com/loktrishal-05/loktrishal-portfolio-cinematic
-- Permanent local project: `Desktop/loktrishal-portfolio-cinematic`
-- Portable source archive: `Desktop/loktrishal-new-portfolio.zip`
-- Verified temporary Vercel preview: https://quick-glacier-mr59h2j.tmp.now
-- Preview expiry: 2 November 2026, 17:48:28 IST, unless claimed.
+- Repository: https://github.com/loktrishal-05/loktrishal-portfolio-cinematic
+- Permanent workspace: Desktop/loktrishal-portfolio-cinematic
+- Portable source archive: Desktop/loktrishal-new-portfolio.zip
+- Current preview: https://swift-eclipse-zuv78aq.tmp.now
+- Preview expiry: 2 November 2026, 22:01:03 IST unless claimed.
 
-Vercel CLI was logged out. Native access to the owner's signed-in Chrome window was rejected by automatic approval review. A device-login request expired without completing authentication, so permanent account-owned deployment remains pending owner action.
+Only this new repository/project is used. The older portfolio remote main remains 935af431f705e69b312e631ad6584e2618f15219, and its local checkout is clean.
 
-Vercel's new anonymous source build hit a Windows `spawn cmd.exe ENOENT` error. Deploying the already-built `dist/` directory directly succeeded without changing the application. The public preview passed the same browser suite as the local build.
+Vercel CLI has no owner login. Native access to the signed-in Chrome app was rejected by automatic approval review. Earlier device login expired. Permanent account ownership therefore needs the owner to claim a new preview or complete Vercel authentication; do not describe an anonymous preview as permanent production.
 
-Claim the deployment using the private link sent in the conversation to retain it, or authenticate the CLI with `npx vercel login`, then link/deploy only a NEW project. Do not reuse the older project's `.vercel/project.json`, domain or repository. Claim credentials and anonymous deployment metadata must stay out of Git.
-
-For a fresh permanent CLI deployment after sign-in:
+Anonymous source builds hit Windows spawn cmd.exe ENOENT. Deploying the already-built static directory works:
 
 ```sh
 npm ci
 npm test
 npm run build
+npx --yes vercel@65.9.0 deploy dist --temporary --yes
+```
+
+Temporary previews expire after one hour unless claimed. Claim credentials are shared privately in the conversation, never committed. After account sign-in, link only a NEW project:
+
+```sh
 npx vercel link --yes --project loktrishal-portfolio-cinematic
 npx vercel deploy --prod --yes
 ```
 
-The earlier repository's `main` commit was checked before and after this work and remains `935af431f705e69b312e631ad6584e2618f15219`. The previous local portfolio checkout is unchanged and clean.
+Do not reuse the older project's .vercel/project.json, domain or repository.
+
+The new 3D public preview passed the complete four-width and five-scenario browser suite. See QA.md.

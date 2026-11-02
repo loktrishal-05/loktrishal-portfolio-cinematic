@@ -1,0 +1,104 @@
+{
+  "base": "https://swift-eclipse-zuv78aq.tmp.now",
+  "date": "2026-11-02T15:31:26.722Z",
+  "viewports": [
+    {
+      "width": 360,
+      "geometry": {
+        "viewport": 360,
+        "document": 360,
+        "lcpMs": 1328
+      },
+      "scene": "ready",
+      "triggers": [],
+      "errors": [],
+      "failed": [],
+      "videoRequests": 0,
+      "smallTargets": [],
+      "violations": []
+    },
+    {
+      "width": 768,
+      "geometry": {
+        "viewport": 768,
+        "document": 768,
+        "lcpMs": 384
+      },
+      "scene": "ready",
+      "triggers": [],
+      "errors": [],
+      "failed": [],
+      "videoRequests": 0,
+      "smallTargets": [],
+      "violations": []
+    },
+    {
+      "width": 1280,
+      "geometry": {
+        "viewport": 1280,
+        "document": 1280,
+        "lcpMs": 292
+      },
+      "scene": "ready",
+      "triggers": [
+        "hero",
+        "gallery"
+      ],
+      "errors": [],
+      "failed": [],
+      "videoRequests": 0,
+      "smallTargets": [],
+      "violations": []
+    },
+    {
+      "width": 1920,
+      "geometry": {
+        "viewport": 1920,
+        "document": 1920,
+        "lcpMs": 260
+      },
+      "scene": "ready",
+      "triggers": [
+        "hero",
+        "gallery"
+      ],
+      "errors": [],
+      "failed": [],
+      "videoRequests": 0,
+      "smallTargets": [],
+      "violations": []
+    }
+  ],
+  "scenarios": [
+    {
+      "scenario": "reduced-motion",
+      "state": "static",
+      "sceneRequests": 0,
+      "passed": true
+    },
+    {
+      "scenario": "save-data",
+      "state": "static",
+      "sceneRequests": 0,
+      "passed": true
+    },
+    {
+      "scenario": "missing-3d",
+      "state": "fallback",
+      "sceneRequests": 1,
+      "passed": true
+    },
+    {
+      "scenario": "missing-copy",
+      "state": "ready",
+      "sceneRequests": 1,
+      "passed": true
+    },
+    {
+      "scenario": "keyboard",
+      "state": "ready",
+      "sceneRequests": 1,
+      "passed": true
+    }
+  ]
+}

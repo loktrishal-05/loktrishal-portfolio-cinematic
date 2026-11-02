@@ -1,50 +1,41 @@
-# Verification — 2 November 2026
+# Cinematic 3D revision - checks actually run
 
-This report covers the separate cinematic portfolio, not the old portfolio. The original GitHub main branch remains at `935af431f705e69b312e631ad6584e2618f15219`; the prior local working copy remains clean at its existing commit. This project has its own fresh Git history and remote.
+2 November 2026. Supersedes the rejected film-version QA. Local browser: installed Chrome through Playwright; WebGL test uses Chrome's software renderer. This does not establish physical-device GPU frame rate.
 
-## Tests actually run
-
-| Check | Result / evidence |
+| Actually run | Result / evidence |
 | --- | --- |
-| Content and film unit tests | 12 pass via `npm test`; corpus, safe links, asset formats, calendar dates, transcription fidelity, autoplay decisions, pause/resume/skip, rejection, late promises and stalled-load timeout |
-| Production static build | `npm run build` passes; only public application files and data are copied into `dist` |
-| Desktop/narrow rendering | 360, 768, 1280 and 1920px: zero horizontal overflow |
-| Accessibility automation | axe WCAG A/AA/2.1 tags: zero violations at all four widths after identity-label fix |
-| Touch targets | Visible links/buttons meet 44px width and height at the tested four widths |
-| Project controls | Six initially featured; show all gives 13; category filtering and collapse work |
-| Credential rendering | 16 sourced records render at every tested width |
-| Mobile navigation | Opens and closes with Escape |
-| Keyboard | First Tab exposes visible Skip to content focus; Enter reaches main content |
-| Reduced motion | Static poster, video paused, zero video requests |
-| Save-Data | Static poster, video paused, zero video requests |
-| Missing video | Aborted media request leaves poster and portfolio content available |
-| Missing content | Simulated 503 shows retry; retry restores projects after recovery |
-| Slow network | CDP 400ms latency / 50KB/s download: content stays usable and film eventually begins; case completes in about 19 seconds |
-| Performance sample | Local Chrome LCP observations 208–568ms across the four widths; this is not a public-network or device-lab guarantee |
-| Normal console / network | Zero console errors, page exceptions and failed HTTP responses after favicon fix |
-| Media | Both codecs decode end-to-end; 1920×1080 / 24fps / 7.625s / silent; MP4 1.89MB, WebM 1.71MB |
-| Visual evidence | Desktop/mobile section and full-page captures plus actual hero playback/scroll GIF in local `artifacts/`; shareable hero captures and JSON report in `docs/qa/` |
-| Independent review | Ship for local tested build: all material UI findings resolved; one older section screenshot focus artifact was cosmetic |
+| npm test | 9/9: content integrity, safe links, dates, image provenance, static fallback, motion policy and choreography bounds |
+| npm run build | Static bundled output built successfully; no runtime CDN |
+| Browser widths 360, 768, 1280, 1920px at 1000px height | No horizontal page overflow; six featured projects, 16 recognition records; scene ready |
+| axe WCAG 2 A/AA + 2.1 A/AA at all four widths | Zero detected violations; all visible links/buttons meet the 44px target check |
+| Console / requests at all four widths | Zero errors, zero failed responses, zero video requests |
+| Local LCP observations, same four widths | 556 / 492 / 356 / 348 ms; local desktop observations, not a field performance guarantee |
+| Real hero scroll | Scene open changes 0 to 1, rotation and camera distance change; [28-frame recording](qa-v2/hero-scroll.gif) |
+| Horizontal gallery / short desktop 1440x768 | Project source links visible at y572-616; [screenshot](qa-v2/short-desktop-gallery.png) |
+| Keyboard | Skip link focus and navigation; mobile menu Escape; desktop-to-mobile gallery focus regression checked |
+| Reduced motion | No scene chunk request, no ScrollTriggers; switching preference keeps renderer paused after visibility events |
+| Save-Data | No scene chunk request; static fallback |
+| Missing 3D bundle / WebGL disabled | Real rendered poster stays visible; WebGL-disabled fallback has zero console errors |
+| JSON 503 | Static identity survives, retry restores content |
+| Slow 3G simulation | 400ms latency, 50KB/s: identity/poster visible during loading; complete live scene ready after 26.1s |
+| Persisted pagehide | Synthetic back-forward-cache event preserves initialized state; actual history restoration remains manual |
+| Independent code/browser review | Three P2 lifecycle defects found and fixed: gallery focus cleanup, reduced-motion resume guard, persisted pagehide teardown |
+| Design detector | One scan. Small metadata raised to 11px and tracking reduced. Remaining structural warnings reviewed visually: full-bleed section wrappers have inset children; tight leading is architectural display, not body copy |
+| Public Vercel deployment | Full four-width/five-scenario suite passed on https://swift-eclipse-zuv78aq.tmp.now ; zero console/asset/axe/target/overflow issues; observed LCP 1328 / 384 / 292 / 260ms |
+| Original portfolio isolation | Old remote main remains 935af431f705e69b312e631ad6584e2618f15219; old local checkout clean |
 
-The Impeccable detector was run once. Cream-palette warning is deliberate and explicitly approved. Section/background-padding warnings are false positives for the actual `section-space` and contained-wrap layout; the screenshot evidence has generous measured insets. No new world or unrelated decorative feature was added to silence the detector.
+Static contrast measurements: graphite on ground/paper 13.28/14.52:1; muted 5.83/6.38:1; cobalt 5.26/5.75:1; paper on cobalt 5.75:1. All static text pairs pass normal-text AA.
 
-## Manual or later checks
+## Visual evidence
+[Desktop hero](qa-v2/1280-hero.png) - [Mobile hero](qa-v2/360-hero.png) - [Gallery](qa-v2/1920-gallery-0.5.png) - [Recognition](qa-v2/1280-credentials.png). Reports: [viewport/scenario results](qa-v2/qa-report.json), [motion/network results](qa-v2/motion-report.json). The final metadata-size/lifecycle fixes are covered by targeted tests and the deployment confirmation.
 
-| Check | Status |
+## Suggested manual checks - not claimed as run
+| Manual check | Why |
 | --- | --- |
-| Real iOS Safari / Android hardware | Not run |
-| Full screen-reader session | Not run; automated checks do not replace it |
-| Every legacy external demo | Not operationally retested; earlier work is labelled |
-| Issuer-hosted credential verification | Not independently performed; originals were transcribed in the earlier content phase |
-| Generated-motion perfection | Existing film's missing aerial action/panel changes cannot be reconstructed by trimming; see `MEDIA.md` |
-| Public deployment | Verified separately on the anonymous Vercel preview; permanent account linkage still requires the owner to claim/sign in |
+| Physical mid-range Android/iPhone GPU and thermal behavior | Software-rendered desktop Chrome is not device performance |
+| Safari / Firefox / screen reader | Only Chrome was automated |
+| Real back/forward history restoration | Only persisted pagehide preservation was exercised |
+| Production Core Web Vitals and real mobile network | Local LCP and throttling are not field measurements |
+| Every third-party demo's full workflow | Portfolio links preserve project status/prototype limits; backends are outside this portfolio change |
 
-No paid media generation or new account registration was performed. The user's original Downloads inputs remain unchanged. No old repository or deployment was modified.
-
-## Public Vercel confirmation
-
-The complete browser suite was also run against `https://quick-glacier-mr59h2j.tmp.now`. All four widths reported zero overflow, zero axe violations, zero undersized visible targets, zero console errors and zero failed normal-load requests. All six failure/preference/keyboard/network scenarios passed. Observed LCP was 1.428s at 360px, 0.444s at 768px, 0.300s at 1280px and 0.396s at 1920px in this Chrome run. These are observations, not a universal performance guarantee.
-
-Public HEAD checks confirmed the page, JSON and MP4 serve HTTP 200 with appropriate types; the private `/.vercel/anonymous.json` path returns 404. `docs/qa/public-report.json` contains the measured browser results.
-
-The anonymous preview expires at 17:48:28 IST on 2 November 2026 unless claimed. It is not yet a permanent account-owned production deployment. The owner received the private claim link separately; that claim code is not stored in this repository.
+Public confirmation: [deployment results](qa-v2/deployment-report.json). Current screenshots show the public deployment.
