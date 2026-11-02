@@ -97,14 +97,8 @@ test('public copy has no encoding corruption or private paths', () => {
   }
 });
 
-test('the optimized intro, exact-frame fallbacks and avatar are present and web-readable', async () => {
-  const media = [
-    ['media/hero-entry.mp4', 'mp4'],
-    ['media/hero-entry.webm', 'webm'],
-    ['media/hero-poster.webp', 'webp'],
-    ['media/hero-end.webp', 'webp'],
-    ['brand/avatar.webp', 'webp'],
-  ];
+test('the rendered sculpture fallback is web-readable without loading any video', async () => {
+  const media = [['brand/kinetic-poster.webp', 'webp']];
   for (const [file, format] of media) {
     const bytes = await readFile(resolve(root, 'public', file));
     assert.ok(bytes.length > 0 && bytes.length < 4_000_000, file);

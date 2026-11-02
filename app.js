@@ -1,384 +1,233 @@
-const OPENING = '/media/hero-poster.webp';
-const ENDING = '/media/hero-end.webp';
-const SESSION_KEY = 'loktrishal-arrival-seen';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Lenis from 'lenis';
+import { motionPolicy } from './motion.js';
 
-export function shouldAutoplay({ reducedMotion = false, saveData = false, seen = false, mobile = false } = {}) {
-  return !reducedMotion && !saveData && !seen && !mobile;
-}
-
-export function createFilmController({ video, picture, container, toggle, skip, replay, status, progress, labels, onSeen = () => {}, timeoutMs = 12000 }) {
-  let state = 'poster';
-  let loadTimer;
-  let destroyed = false;
-  let request = 0;
-  const events = [];
-  const listen = (target, event, handler) => {
-    target.addEventListener(event, handler);
-    events.push(() => target.removeEventListener(event, handler));
-  };
-  function setState(next) {
-    state = next;
-    container.dataset.state = next;
-    const running = next === 'playing' || next === 'loading';
-    toggle.hidden = next === 'ended';
-    skip.hidden = !running && next !== 'paused';
-    replay.hidden = next !== 'ended';
-    progress.hidden = !running && next !== 'paused';
-    toggle.querySelector('span').textContent = running ? labels.pause : labels.play;
-    toggle.setAttribute('aria-label', running ? labels.pause : labels.play);
-    toggle.dataset.icon = running ? 'pause' : 'play';
-    const path = toggle.querySelector('path');
-    if (path) path.setAttribute('d', running ? 'M9 5v14M16 5v14' : 'm9 5 11 7-11 7Z');
-  }
-  function stopTimer() {
-    clearTimeout(loadTimer);
-  }
-  function fallback(message = '') {
-    request += 1;
-    stopTimer();
-    video.pause();
-    picture.src = ENDING;
-    setState('poster');
-    status.textContent = message;
-  }
-  function finish() {
-    request += 1;
-    stopTimer();
-    video.pause();
-    picture.src = ENDING;
-    progress.value = 1;
-    onSeen();
-    setState('ended');
-    status.textContent = labels.filmFinished;
-  }
-  async function play() {
-    if (destroyed || state === 'playing' || state === 'loading') return;
-    const attempt = ++request;
-    const resume = state === 'paused';
-    status.textContent = '';
-    picture.src = OPENING;
-    if (!video.getAttribute('src')) {
-      video.src = video.canPlayType('video/webm; codecs="vp9"') ? '/media/hero-entry.webm' : '/media/hero-entry.mp4';
-      video.load();
-    }
-    if (!resume) video.currentTime = 0;
-    setState('loading');
-    loadTimer = setTimeout(() => {
-      if (state === 'loading') {
-        video.removeAttribute('src');
-        video.load();
-        fallback(labels.filmUnavailable);
-      }
-    }, timeoutMs);
-    try {
-      await video.play();
-      if (destroyed || request !== attempt) return;
-      stopTimer();
-      setState('playing');
-      onSeen();
-    } catch {
-      if (request === attempt && !destroyed) fallback(labels.filmUnavailable);
-    }
-  }
-  function pause() {
-    request += 1;
-    stopTimer();
-    video.pause();
-    if (state === 'loading') {
-      picture.src = ENDING;
-      setState('poster');
-    } else if (state === 'playing') {
-      setState('paused');
-    }
-  }
-  listen(toggle, 'click', () => state === 'playing' || state === 'loading' ? pause() : play());
-  listen(skip, 'click', finish);
-  listen(replay, 'click', play);
-  listen(video, 'ended', finish);
-  listen(video, 'error', () => fallback(labels.filmUnavailable));
-  listen(video, 'timeupdate', () => { progress.value = video.duration ? video.currentTime / video.duration : 0; });
-  setState('poster');
-  return {
-    play,
-    pause,
-    finish,
-    fallback,
-    getState: () => state,
-    destroy() {
-      destroyed = true;
-      request += 1;
-      stopTimer();
-      video.pause();
-      events.forEach(remove => remove());
-    },
-  };
-}
-
-function element(tag, className, text) {
+gsap.registerPlugin(ScrollTrigger);
+const $ = selector => document.querySelector(selector);
+function element(tag, className = '', text) {
   const node = document.createElement(tag);
   if (className) node.className = className;
   if (text != null) node.textContent = text;
   return node;
 }
-
 function arrow() {
   const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-  svg.setAttribute('viewBox', '0 0 24 24');
-  svg.setAttribute('aria-hidden', 'true');
+  svg.setAttribute('viewBox', '0 0 24 24'); svg.setAttribute('aria-hidden', 'true');
   const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-  path.setAttribute('d', 'M5 19 19 5M5 5h14v14');
-  svg.append(path);
-  return svg;
+  path.setAttribute('d', 'M5 19 19 5M5 5h14v14'); svg.append(path); return svg;
 }
-
 function externalLink(url, label) {
   try {
     const parsed = new URL(url);
     if (parsed.protocol !== 'https:' || parsed.username || parsed.password) return null;
-    const link = element('a', 'inline-link', label);
-    link.href = parsed.href;
-    link.target = '_blank';
-    link.rel = 'noopener noreferrer';
-    link.append(arrow());
-    return link;
-  } catch {
-    return null;
-  }
+    const a = element('a', 'inline-link', label);
+    a.href = parsed.href; a.target = '_blank'; a.rel = 'noopener noreferrer'; a.append(arrow()); return a;
+  } catch { return null; }
 }
-
+function links(project, copy) {
+  const group = element('div', 'project-links');
+  for (const [url, label] of [[project.source, copy.labels.viewSource], [project.demo, copy.labels.viewDemo]]) {
+    const a = url && externalLink(url, label); if (a) group.append(a);
+  }
+  return group;
+}
 function applyCopy(copy) {
-  document.querySelectorAll('[data-copy]').forEach(node => {
-    const value = node.dataset.copy.split('.').reduce((data, key) => data?.[key], copy);
-    if (typeof value === 'string') node.textContent = value;
-  });
+  for (const node of document.querySelectorAll('[data-copy]')) {
+    const text = node.dataset.copy.split('.').reduce((value, key) => value?.[key], copy);
+    if (typeof text === 'string') node.textContent = text;
+  }
   document.title = copy.meta.title;
-  document.querySelector('meta[name="description"]').content = copy.meta.description;
-  const heading = document.getElementById('hero-title');
-  heading.replaceChildren(...copy.hero.titleLines.map(line => element('span', '', line)));
-  document.getElementById('hero-poster').alt = copy.hero.avatarAlt;
-  document.querySelector('.portrait img').alt = copy.labels.portraitCaption;
-  document.getElementById('hero-video').setAttribute('aria-label', copy.hero.videoLabel);
-  document.getElementById('film-progress').setAttribute('aria-label', copy.labels.videoProgress);
-  const email = document.getElementById('contact-email');
-  email.href = `mailto:${copy.profile.email}`;
-  document.getElementById('github-link').href = copy.profile.github;
-  document.getElementById('linkedin-link').href = copy.profile.linkedin;
 }
-
-function setupNavigation(copy) {
-  const menu = document.getElementById('mobile-nav');
-  const toggle = document.getElementById('menu-toggle');
-  const desktop = document.querySelector('[data-nav]');
-  const makeLink = item => {
-    const link = element('a', '', item.label);
-    link.href = item.href;
-    return link;
-  };
-  menu.replaceChildren(...copy.navigation.map(makeLink));
-  desktop.replaceChildren(...copy.navigation.filter(item => item.href !== '#contact').map(makeLink));
-  function close() {
-    menu.hidden = true;
-    toggle.setAttribute('aria-expanded', 'false');
-    toggle.setAttribute('aria-label', copy.labels.menu);
-    document.body.classList.remove('menu-open');
-  }
-  toggle.addEventListener('click', () => {
-    if (!menu.hidden) return close();
-    menu.hidden = false;
-    toggle.setAttribute('aria-expanded', 'true');
-    toggle.setAttribute('aria-label', copy.labels.closeMenu);
-    document.body.classList.add('menu-open');
-    menu.querySelector('a')?.focus();
-  });
-  menu.addEventListener('click', event => { if (event.target.closest('a')) close(); });
-  document.addEventListener('keydown', event => {
-    if (event.key === 'Escape' && !menu.hidden) {
-      close();
-      toggle.focus();
-    }
-  });
-  window.matchMedia('(min-width: 801px)').addEventListener('change', close);
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      desktop.querySelectorAll('a').forEach(link => {
-        if (link.hash === `#${entry.target.id}`) link.setAttribute('aria-current', 'location');
-        else link.removeAttribute('aria-current');
-      });
-    });
-  }, { rootMargin: '-20% 0px -55% 0px' });
-  copy.navigation.forEach(item => { const node = document.querySelector(item.href); if (node) observer.observe(node); });
-  return () => observer.disconnect();
-}
-
-function renderProjects(copy) {
-  const list = document.getElementById('project-list');
-  const filterBox = document.getElementById('project-filters');
-  const more = document.getElementById('show-projects');
-  const groups = [...new Set(copy.projects.map(project => project.filterGroup))];
-  let category = '';
-  let expanded = false;
-  filterBox.setAttribute('aria-label', copy.labels.filterLabel);
-  function draw() {
-    const filtered = category ? copy.projects.filter(project => project.filterGroup === category) : copy.projects;
-    const visible = category || expanded ? filtered : filtered.filter(project => project.featured);
-    const nodes = visible.map(project => {
-      const article = element('article', `project${project.image ? '' : ' project--compact'}`);
-      article.dataset.project = project.id;
-      if (project.image) {
-        const figure = element('figure', 'project-media');
-        const imageBox = element('div', 'project-image');
-        const img = element('img');
-        img.src = project.image;
-        img.alt = project.imageAlt;
-        img.width = project.imageWidth || 1440;
-        img.height = project.imageHeight || 900;
-        img.loading = 'lazy';
-        img.decoding = 'async';
-        img.addEventListener('error', () => {
-          imageBox.replaceChildren(element('p', 'empty-state', copy.labels.projectImageFallback));
-          imageBox.classList.add('project-image--unavailable');
-        }, { once: true });
-        imageBox.append(img);
-        figure.append(imageBox, element('figcaption', '', project.imageCaption));
-        article.append(figure);
-      }
-      const content = element('div', 'project-copy');
-      const meta = element('div', 'project-meta');
-      meta.append(element('span', '', project.category), element('span', '', project.year));
-      const title = element('h3', '', project.shortTitle || project.title);
-      const description = element('p', 'project-description', project.description);
-      const status = element('span', 'project-status', project.status);
-      const tech = element('ul', 'project-tech');
-      tech.setAttribute('aria-label', copy.labels.technology);
-      tech.append(...project.tech.map(item => element('li', '', item)));
-      const links = element('div', 'project-links');
-      if (project.source) { const link = externalLink(project.source, copy.labels.viewSource); if (link) links.append(link); }
-      if (project.demo) { const link = externalLink(project.demo, copy.labels.viewDemo); if (link) links.append(link); }
-      content.append(meta, title, description, status, tech, links);
-      article.append(content);
-      return article;
-    });
-    list.replaceChildren(...nodes);
-    if (!nodes.length) list.append(element('p', 'empty-state', copy.labels.projectsEmpty));
-    list.setAttribute('aria-busy', 'false');
-    more.hidden = !!category || copy.projects.every(project => project.featured);
-    more.querySelector('span').textContent = expanded ? copy.labels.showLess : copy.labels.showMore;
-    more.setAttribute('aria-expanded', String(expanded));
-    filterBox.querySelectorAll('button').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.filter === category)));
-  }
-  ['', ...groups].forEach(group => {
-    const button = element('button', 'filter', group || copy.labels.allFilter);
-    button.type = 'button';
-    button.dataset.filter = group;
-    button.addEventListener('click', () => { category = group; draw(); });
-    filterBox.append(button);
-  });
-  more.addEventListener('click', () => {
-    expanded = !expanded;
-    draw();
-    if (!expanded) document.getElementById('work').scrollIntoView({ behavior: 'instant' });
-  });
-  draw();
-}
-
-function renderAbout(copy) {
-  document.getElementById('about-paragraphs').replaceChildren(...copy.about.paragraphs.map(text => element('p', '', text)));
-  const education = copy.profile.education;
-  document.getElementById('education').replaceChildren(element('strong', '', education.degree), element('span', '', education.institution), element('span', '', education.graduation));
-  document.getElementById('skill-list').replaceChildren(...copy.skills.map(skill => {
-    const article = element('article', 'skill');
-    const list = element('ul');
-    list.append(...skill.items.map(item => element('li', '', item)));
-    article.append(element('h3', '', skill.name), element('p', '', skill.description), list);
-    return article;
+function renderWork(copy) {
+  const list = $('#project-list');
+  list.replaceChildren(...copy.projects.filter(p => p.featured).map((project, index) => {
+    const article = element('article', 'project'); article.dataset.project = project.id;
+    const figure = element('figure', 'project-media');
+    const imageBox = element('div', 'project-image');
+    const image = element('img'); image.src = project.image; image.alt = project.imageAlt;
+    image.width = project.imageWidth || 1440; image.height = project.imageHeight || 900;
+    image.loading = index < 2 ? 'eager' : 'lazy'; image.decoding = 'async';
+    image.addEventListener('error', () => imageBox.replaceChildren(element('p', 'empty-state', copy.labels.projectImageFallback)), { once: true });
+    imageBox.append(image); figure.append(imageBox, element('figcaption', '', project.imageCaption));
+    const content = element('div', 'project-copy');
+    const meta = element('div', 'project-meta'); meta.append(element('span', '', `${String(index + 1).padStart(2, '0')} / ${project.category}`), element('span', '', project.year));
+    const tech = element('ul', 'project-tech'); tech.setAttribute('aria-label', copy.labels.technology);
+    tech.append(...project.tech.map(item => element('li', '', item)));
+    content.append(meta, element('h3', '', project.shortTitle || project.title), element('p', 'project-description', project.description), element('span', 'project-status', project.status), tech, links(project, copy));
+    article.append(figure, content); return article;
   }));
+  list.setAttribute('aria-busy', 'false');
+  let category = '';
+  const groups = ['', ...new Set(copy.projects.map(p => p.filterGroup))];
+  function drawArchive() {
+    const projects = category ? copy.projects.filter(p => p.filterGroup === category) : copy.projects;
+    $('#archive-list').replaceChildren(...projects.map(project => {
+      const row = element('article', 'archive-row');
+      const title = element('div'); title.append(element('h3', '', project.shortTitle || project.title), element('p', '', `${project.category} / ${project.year}`));
+      row.append(title, element('span', 'project-status', project.status), links(project, copy)); return row;
+    }));
+    $('#project-filters').querySelectorAll('button').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.filter === category)));
+  }
+  $('#project-filters').replaceChildren(...groups.map(group => {
+    const button = element('button', 'filter', group || copy.labels.allFilter); button.type = 'button'; button.dataset.filter = group;
+    button.addEventListener('click', () => { category = group; drawArchive(); }); return button;
+  }));
+  $('#show-projects').addEventListener('click', () => {
+    const open = $('#archive-content').hidden;
+    $('#archive-content').hidden = !open;
+    $('#show-projects').setAttribute('aria-expanded', String(open));
+    $('#show-projects span').textContent = open ? copy.labels.showLess : copy.labels.showMore;
+    ScrollTrigger.refresh();
+  });
+  drawArchive();
 }
-
-function renderCredentials(copy) {
-  const list = document.getElementById('credential-list');
-  const formatter = new Intl.DateTimeFormat('en', { month: 'short', year: 'numeric', day: 'numeric', timeZone: 'UTC' });
-  const nodes = copy.credentials.map(item => {
-    const row = element('article', 'credential');
-    const title = element('div');
-    title.append(element('span', 'credential-type', item.type), element('h3', '', item.title));
-    row.append(title, element('p', '', item.issuer));
+function renderDetails(copy) {
+  $('#about-paragraphs').replaceChildren(...copy.about.paragraphs.map(text => element('p', '', text)));
+  const education = copy.profile.education;
+  $('#education').replaceChildren(element('strong', '', education.degree), element('span', '', education.institution), element('span', '', education.graduation));
+  $('#skill-list').replaceChildren(...copy.skills.map(skill => {
+    const article = element('article', 'skill'); const items = element('ul'); items.append(...skill.items.map(item => element('li', '', item)));
+    article.append(element('h3', '', skill.name), element('p', '', skill.description), items); return article;
+  }));
+  const formatter = new Intl.DateTimeFormat('en', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' });
+  $('#credential-list').replaceChildren(...copy.credentials.map(item => {
+    const row = element('article', 'credential'); const title = element('div');
+    title.append(element('span', 'credential-type', item.type), element('h3', '', item.title)); row.append(title, element('p', '', item.issuer));
     if (item.date && /^\d{4}-\d{2}-\d{2}$/.test(item.date)) {
       const date = new Date(`${item.date}T00:00:00Z`);
-      if (!Number.isNaN(date.valueOf())) {
-        const time = element('time', '', formatter.format(date));
-        time.dateTime = item.date;
-        row.append(time);
-      }
+      if (!Number.isNaN(date.valueOf())) { const time = element('time', '', formatter.format(date)); time.dateTime = item.date; row.append(time); }
     }
     return row;
+  }));
+}
+function navigation(copy) {
+  const toggle = $('#menu-toggle'), nav = $('#mobile-nav');
+  const close = () => { nav.hidden = true; toggle.setAttribute('aria-expanded', 'false'); toggle.setAttribute('aria-label', copy.labels.menu); document.body.classList.remove('menu-open'); };
+  toggle.addEventListener('click', () => {
+    if (!nav.hidden) return close();
+    nav.hidden = false; toggle.setAttribute('aria-expanded', 'true'); toggle.setAttribute('aria-label', copy.labels.closeMenu); document.body.classList.add('menu-open');
   });
-  list.replaceChildren(...nodes);
-  if (!nodes.length) list.append(element('p', 'empty-state', copy.labels.credentialsEmpty));
+  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
+  const key = event => { if (event.key === 'Escape' && !nav.hidden) { close(); toggle.focus(); } };
+  document.addEventListener('keydown', key);
+  const header = $('.site-header');
+  const updateHeader = () => header.classList.toggle('is-scrolled', scrollY > innerHeight * 1.4);
+  window.addEventListener('scroll', updateHeader, { passive: true });
+  updateHeader();
+  return () => { document.removeEventListener('keydown', key); window.removeEventListener('scroll', updateHeader); };
 }
-
-function setupMotion(reducedMotion) {
-  if (reducedMotion.matches || !window.gsap) return () => {};
-  const context = window.gsap.context(() => {
-    const timeline = window.gsap.timeline({ defaults: { ease: 'power3.out' } });
-    timeline.from('#hero-title span', { y: 22, opacity: .55, duration: .9, stagger: .1, clearProps: 'all' })
-      .from('.hero-description,.hero-actions,.hero-person', { y: 12, opacity: .5, duration: .6, stagger: .08, clearProps: 'all' }, '-=.5');
-  }, document.body);
-  return () => context.revert();
+async function setupExperience(copy) {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)');
+  const desktop = matchMedia('(min-width: 801px)');
+  const policy = motionPolicy({ reducedMotion: reduce.matches, saveData: navigator.connection?.saveData, width: innerWidth });
+  let sculpture;
+  let lenis;
+  let manuallyPaused = false;
+  const motionButton = $('#scene-toggle');
+  const state = $('#scene-wrap');
+  if (policy.webgl) {
+    try {
+      const { mountScene } = await import('./scene.js');
+      sculpture = mountScene({ canvas: $('#hero-canvas'), mobile: !desktop.matches,
+        onReady() { state.classList.add('scene-ready'); state.dataset.sceneState = 'ready'; },
+        onFailure() { state.classList.remove('scene-ready'); state.dataset.sceneState = 'fallback'; motionButton.hidden = true; },
+      });
+    } catch { state.dataset.sceneState = 'fallback'; }
+  } else { state.dataset.sceneState = 'static'; motionButton.hidden = true; }
+  motionButton.addEventListener('click', () => {
+    manuallyPaused = !manuallyPaused;
+    manuallyPaused ? sculpture?.pause() : sculpture?.resume();
+    motionButton.setAttribute('aria-pressed', String(manuallyPaused));
+    motionButton.textContent = manuallyPaused ? copy.labels.resumeScene : copy.labels.pauseScene;
+  });
+  if (!sculpture) motionButton.hidden = true;
+  if (policy.smooth) {
+    lenis = new Lenis({ lerp: 0.085, smoothWheel: true, anchors: true });
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.lagSmoothing(0);
+  }
+  const tick = time => { lenis?.raf(time * 1000); sculpture?.update(time); };
+  if (lenis || sculpture) gsap.ticker.add(tick);
+  const pointer = event => {
+    if (matchMedia('(hover: hover)').matches) sculpture?.setPointer(event.clientX / innerWidth * 2 - 1, event.clientY / innerHeight * 2 - 1);
+  };
+  window.addEventListener('pointermove', pointer, { passive: true });
+  const resize = () => sculpture?.resize();
+  window.addEventListener('resize', resize);
+  const visibility = () => { if (document.hidden || manuallyPaused || reduce.matches) sculpture?.pause(); else sculpture?.resume(); };
+  document.addEventListener('visibilitychange', visibility);
+  const observer = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting && !manuallyPaused && !document.hidden && !reduce.matches) sculpture?.resume(); else sculpture?.pause();
+  });
+  observer.observe($('#top'));
+  const media = gsap.matchMedia();
+  media.add({ wide: '(min-width: 801px)', reduce: '(prefers-reduced-motion: reduce)' }, context => {
+    if (context.conditions.reduce) return;
+    let focusGallery;
+    const intro = gsap.timeline({ defaults: { ease: 'power3.out' } });
+    intro.from('.hero-name', { y: 65, opacity: 0.35, duration: 1.3, clearProps: 'opacity' })
+      .from('.hero-intro,.hero-coordinate,.hero-bottom', { y: 20, opacity: 0.5, duration: 0.8, stagger: 0.08 }, '-=.8');
+    if (context.conditions.wide) {
+      const hero = gsap.timeline({ scrollTrigger: { id: 'hero', trigger: '#top', pin: '.hero-stage', start: 'top top', end: 'bottom bottom', scrub: 0.8, invalidateOnRefresh: true, onUpdate: self => sculpture?.setProgress(self.progress) } });
+      hero.to('.hero-name', { yPercent: -95, scale: 0.93, opacity: 0, duration: 0.6, ease: 'none' }, 0)
+        .to('.hero-intro,.hero-coordinate', { y: -65, autoAlpha: 0, duration: 0.35 }, 0)
+        .fromTo('.hero-story', { y: 90, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.45 }, 0.32)
+        .to('.hero-story', { y: -65, autoAlpha: 0, duration: 0.25 }, 0.92)
+        .to('.hero-progress span', { scaleX: 1, duration: 1.2, ease: 'none' }, 0);
+      const track = $('#project-list');
+      const distance = () => Math.max(0, track.scrollWidth - innerWidth);
+      const gallery = gsap.to(track, { x: () => -distance(), ease: 'none', scrollTrigger: { id: 'gallery', trigger: '#work', pin: '.work-stage', start: 'top top', end: () => `+=${distance() * 0.85}`, scrub: 0.75, invalidateOnRefresh: true,
+        onUpdate: self => { $('#gallery-current').textContent = String(Math.min(6, 1 + Math.floor(self.progress * 6))).padStart(2, '0'); gsap.set('.gallery-line span', { scaleX: self.progress }); },
+      } });
+      gsap.utils.toArray('.project-media').forEach((figure, index) => {
+        if (!index) return;
+        gsap.from(figure, { rotateY: -13, scale: 0.92, transformOrigin: 'left center', ease: 'none', scrollTrigger: { trigger: figure, containerAnimation: gallery, start: 'left 95%', end: 'left 45%', scrub: true } });
+      });
+      focusGallery = event => {
+        const article = event.target.closest('.project'); if (!article) return;
+        const trigger = ScrollTrigger.getById('gallery');
+        if (!trigger) return;
+        const p = Math.min(1, Math.max(0, (article.offsetLeft - 50) / Math.max(1, distance())));
+        lenis ? lenis.scrollTo(trigger.start + (trigger.end - trigger.start) * p, { immediate: true }) : window.scrollTo(0, trigger.start + (trigger.end - trigger.start) * p);
+      };
+      $('#project-list').addEventListener('focusin', focusGallery);
+    }
+    const statement = $('#statement');
+    statement.replaceChildren(...copy.about.statement.split(' ').flatMap(word => [element('span', 'word', word), document.createTextNode(' ')]));
+    gsap.from('.statement .word', { opacity: 0.65, y: 20, stagger: 0.1, ease: 'none', scrollTrigger: { trigger: '.statement-section', start: 'top 75%', end: 'bottom 70%', scrub: 0.6 } });
+    gsap.utils.toArray('.skill').forEach((node, i) => gsap.from(node, { y: 35, duration: 0.8, delay: (i % 2) * 0.1, scrollTrigger: { trigger: node, start: 'top 90%', once: true } }));
+    gsap.from('.contact-title>span', { yPercent: 20, opacity: 0.7, stagger: 0.1, ease: 'none', scrollTrigger: { trigger: '#contact', start: 'top 85%', end: 'top 30%', scrub: 0.7 } });
+    return () => { if (focusGallery) $('#project-list').removeEventListener('focusin', focusGallery); };
+  });
+  const preference = () => { if (reduce.matches) { lenis?.destroy(); lenis = null; sculpture?.pause(); motionButton.hidden = true; state.classList.remove('scene-ready'); state.dataset.sceneState = 'static'; } };
+  reduce.addEventListener('change', preference);
+  document.fonts.ready.then(() => ScrollTrigger.refresh());
+  const refresh = () => ScrollTrigger.refresh();
+  document.querySelectorAll('#project-list img').forEach(img => img.addEventListener('load', refresh, { once: true }));
+  window.addEventListener('pagehide', event => {
+    if (event.persisted) return;
+    media.revert(); observer.disconnect(); lenis?.destroy(); sculpture?.destroy(); gsap.ticker.remove(tick);
+    reduce.removeEventListener('change', preference); window.removeEventListener('pointermove', pointer); window.removeEventListener('resize', resize); document.removeEventListener('visibilitychange', visibility);
+  });
+  window.__portfolio = { get scene() { return state.dataset.sceneState; }, get sculpture() { return sculpture; }, scroll: ScrollTrigger };
 }
-
 async function boot() {
-  const error = document.getElementById('content-error');
-  const abort = new AbortController();
-  const timer = setTimeout(() => abort.abort(), 12000);
+  const controller = new AbortController(); const timer = setTimeout(() => controller.abort(), 12000);
   try {
-    const response = await fetch('/data/copy.en.json', { signal: abort.signal });
+    const response = await fetch('/data/copy.en.json', { signal: controller.signal });
     if (!response.ok) throw new Error('Content unavailable');
     const copy = await response.json();
     if (!copy.profile || !Array.isArray(copy.projects) || !Array.isArray(copy.credentials)) throw new Error('Invalid content');
-    applyCopy(copy);
-    const cleanNavigation = setupNavigation(copy);
-    renderProjects(copy);
-    renderAbout(copy);
-    renderCredentials(copy);
-    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-    const cleanMotion = setupMotion(reducedMotion);
-    const film = createFilmController({
-      video: document.getElementById('hero-video'),
-      picture: document.getElementById('hero-poster'),
-      container: document.getElementById('hero-media'),
-      toggle: document.getElementById('film-toggle'),
-      skip: document.getElementById('film-skip'),
-      replay: document.getElementById('film-replay'),
-      status: document.getElementById('film-status'),
-      progress: document.getElementById('film-progress'),
-      labels: copy.labels,
-      onSeen() { try { sessionStorage.setItem(SESSION_KEY, '1'); } catch { /* Storage may be disabled. */ } },
-    });
-    let seen = false;
-    try { seen = sessionStorage.getItem(SESSION_KEY) === '1'; } catch { /* The poster still works without storage. */ }
-    if (shouldAutoplay({ reducedMotion: reducedMotion.matches, saveData: navigator.connection?.saveData, seen, mobile: window.matchMedia('(max-width: 800px)').matches })) film.play();
-    const stopMotion = event => { if (event.matches) { film.finish(); cleanMotion(); } };
-    reducedMotion.addEventListener('change', stopMotion);
-    const pauseHidden = () => { if (document.hidden) film.pause(); };
-    document.addEventListener('visibilitychange', pauseHidden);
-    window.addEventListener('pagehide', () => {
-      film.destroy();
-      cleanMotion();
-      cleanNavigation();
-      reducedMotion.removeEventListener('change', stopMotion);
-      document.removeEventListener('visibilitychange', pauseHidden);
-    }, { once: true });
+    applyCopy(copy); renderWork(copy); renderDetails(copy);
+    const cleanNavigation = navigation(copy);
+    window.addEventListener('pagehide', event => { if (!event.persisted) cleanNavigation(); });
+    $('#content-error').hidden = true;
+    await setupExperience(copy);
+    document.body.dataset.ready = 'true';
   } catch {
-    error.hidden = false;
-    document.getElementById('project-list').setAttribute('aria-busy', 'false');
-    document.getElementById('film-toggle').hidden = true;
-  } finally {
-    clearTimeout(timer);
-  }
+    $('#content-error').hidden = false; $('#project-list').setAttribute('aria-busy', 'false');
+  } finally { clearTimeout(timer); }
 }
-
-if (typeof document !== 'undefined') {
-  document.getElementById('content-retry').addEventListener('click', () => window.location.reload());
-  boot();
-}
+$('#content-retry').addEventListener('click', boot);
+boot();
