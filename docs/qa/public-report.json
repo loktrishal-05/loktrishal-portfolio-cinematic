@@ -1,0 +1,137 @@
+{
+  "base": "https://quick-glacier-mr59h2j.tmp.now",
+  "date": "2026-11-02T11:20:08.548Z",
+  "viewports": [
+    {
+      "width": 360,
+      "geometry": {
+        "viewport": 360,
+        "document": 360,
+        "lcpMs": 1428
+      },
+      "firstState": "poster",
+      "errors": [],
+      "failures": [],
+      "undersizedTargets": [],
+      "violations": []
+    },
+    {
+      "width": 768,
+      "geometry": {
+        "viewport": 768,
+        "document": 768,
+        "lcpMs": 444
+      },
+      "firstState": "poster",
+      "errors": [],
+      "failures": [],
+      "undersizedTargets": [],
+      "violations": []
+    },
+    {
+      "width": 1280,
+      "geometry": {
+        "viewport": 1280,
+        "document": 1280,
+        "lcpMs": 300
+      },
+      "firstState": "loading",
+      "errors": [],
+      "failures": [],
+      "undersizedTargets": [],
+      "violations": []
+    },
+    {
+      "width": 1920,
+      "geometry": {
+        "viewport": 1920,
+        "document": 1920,
+        "lcpMs": 396
+      },
+      "firstState": "playing",
+      "errors": [],
+      "failures": [],
+      "undersizedTargets": [],
+      "violations": []
+    }
+  ],
+  "scenarios": [
+    {
+      "scenario": "reduced-motion",
+      "state": "poster",
+      "video": {
+        "paused": true,
+        "currentTime": 0,
+        "hasSource": false
+      },
+      "videoRequests": 0,
+      "readyMs": 1136,
+      "passed": true
+    },
+    {
+      "scenario": "save-data",
+      "state": "poster",
+      "video": {
+        "paused": true,
+        "currentTime": 0,
+        "hasSource": false
+      },
+      "videoRequests": 0,
+      "readyMs": 1177,
+      "passed": true
+    },
+    {
+      "scenario": "missing-video",
+      "state": "poster",
+      "video": {
+        "paused": true,
+        "currentTime": 0,
+        "hasSource": true
+      },
+      "videoRequests": 1,
+      "readyMs": 2534,
+      "passed": true
+    },
+    {
+      "scenario": "missing-copy",
+      "state": "playing",
+      "video": {
+        "paused": false,
+        "currentTime": 0.1519,
+        "hasSource": true
+      },
+      "videoRequests": 1,
+      "readyMs": 1307,
+      "passed": true
+    },
+    {
+      "scenario": "keyboard",
+      "state": "playing",
+      "video": {
+        "paused": false,
+        "currentTime": 0.2107,
+        "hasSource": true
+      },
+      "videoRequests": 1,
+      "readyMs": 1334,
+      "keyboard": {
+        "text": "Skip to content",
+        "visibleFocus": true,
+        "outline": "solid"
+      },
+      "passed": true
+    },
+    {
+      "scenario": "slow-3g",
+      "state": "playing",
+      "video": {
+        "paused": false,
+        "currentTime": 0.0987,
+        "hasSource": true
+      },
+      "videoRequests": 1,
+      "readyMs": 17227,
+      "passed": true
+    }
+  ]
+}

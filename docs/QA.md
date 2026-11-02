@@ -37,6 +37,14 @@ The Impeccable detector was run once. Cream-palette warning is deliberate and ex
 | Every legacy external demo | Not operationally retested; earlier work is labelled |
 | Issuer-hosted credential verification | Not independently performed; originals were transcribed in the earlier content phase |
 | Generated-motion perfection | Existing film's missing aerial action/panel changes cannot be reconstructed by trimming; see `MEDIA.md` |
-| Public deployment | Verify separately after publishing; account linkage requires Vercel sign-in |
+| Public deployment | Verified separately on the anonymous Vercel preview; permanent account linkage still requires the owner to claim/sign in |
 
 No paid media generation or new account registration was performed. The user's original Downloads inputs remain unchanged. No old repository or deployment was modified.
+
+## Public Vercel confirmation
+
+The complete browser suite was also run against `https://quick-glacier-mr59h2j.tmp.now`. All four widths reported zero overflow, zero axe violations, zero undersized visible targets, zero console errors and zero failed normal-load requests. All six failure/preference/keyboard/network scenarios passed. Observed LCP was 1.428s at 360px, 0.444s at 768px, 0.300s at 1280px and 0.396s at 1920px in this Chrome run. These are observations, not a universal performance guarantee.
+
+Public HEAD checks confirmed the page, JSON and MP4 serve HTTP 200 with appropriate types; the private `/.vercel/anonymous.json` path returns 404. `docs/qa/public-report.json` contains the measured browser results.
+
+The anonymous preview expires at 17:48:28 IST on 2 November 2026 unless claimed. It is not yet a permanent account-owned production deployment. The owner received the private claim link separately; that claim code is not stored in this repository.
