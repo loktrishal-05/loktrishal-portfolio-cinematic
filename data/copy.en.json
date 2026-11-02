@@ -1,0 +1,650 @@
+{
+  "profile": {
+    "name": "Loktrishal K",
+    "role": "AI & Data Science - Full-stack development",
+    "location": "Chennai, India",
+    "email": "loktrishal.k@gmail.com",
+    "github": "https://github.com/loktrishal-05",
+    "linkedin": "https://www.linkedin.com/in/loktrishal-k-230294376/",
+    "availability": "Open to internships & collaboration",
+    "education": {
+      "degree": "B.Tech - Artificial Intelligence & Data Science",
+      "institution": "R.M.K. College of Engineering & Technology",
+      "graduation": "Expected January 2028"
+    }
+  },
+  "navigation": [
+    {
+      "label": "Work",
+      "href": "#work"
+    },
+    {
+      "label": "About",
+      "href": "#about"
+    },
+    {
+      "label": "Expertise",
+      "href": "#skills"
+    },
+    {
+      "label": "Recognition",
+      "href": "#credentials"
+    },
+    {
+      "label": "Let's talk",
+      "href": "#contact"
+    }
+  ],
+  "hero": {
+    "titleLines": [
+      "I build intelligence",
+      "people can use."
+    ],
+    "description": "I'm Loktrishal, an AI & Data Science student connecting machine learning, thoughtful interfaces and real-world questions. Based in Chennai. Building with purpose.",
+    "primaryCta": "Explore my work",
+    "secondaryCta": "Let's talk",
+    "videoLabel": "An introduction, in motion",
+    "filmLabel": "The arrival - an original avatar film",
+    "avatarAlt": "A cinematic 3D avatar of Loktrishal in a bright architectural studio"
+  },
+  "about": {
+    "heading": "Curiosity, made useful.",
+    "statement": "The most interesting part of AI is what people can do with it.",
+    "paragraphs": [
+      "I'm a B.Tech Artificial Intelligence & Data Science student at R.M.K. College of Engineering & Technology in Chennai. I enjoy the whole path from a difficult question to an experience someone can understand and use.",
+      "My work moves between machine learning, evidence-grounded agents and full-stack engineering. Recent projects explore inherited-risk education, safer agriculture, exoplanet detection and document intelligence.",
+      "I care about clear explanations, privacy, reproducibility and human judgement. A fictional demo, a prototype and an operational product deserve different claims, and I keep those boundaries visible."
+    ]
+  },
+  "skills": [
+    {
+      "name": "Frontend",
+      "description": "Interactive and accessible interfaces for multilingual healthcare, science learning and data dashboards.",
+      "items": [
+        "React",
+        "Next.js",
+        "TypeScript",
+        "HTML",
+        "CSS",
+        "Tailwind CSS",
+        "GSAP",
+        "Three.js",
+        "React Three Fiber",
+        "Zustand"
+      ]
+    },
+    {
+      "name": "Backend",
+      "description": "Python and Node.js APIs with scoped access, document processing and persistent data.",
+      "items": [
+        "FastAPI",
+        "Node.js",
+        "Express",
+        "REST APIs",
+        "PostgreSQL",
+        "PostGIS",
+        "Supabase",
+        "MongoDB",
+        "Document extraction"
+      ]
+    },
+    {
+      "name": "AI & machine learning",
+      "description": "Calibrated models, forecasting and agents grounded in evidence and safety checks.",
+      "items": [
+        "LangGraph",
+        "LangChain",
+        "Gemini API",
+        "RAG",
+        "Qdrant",
+        "XGBoost",
+        "ONNX",
+        "Computer vision",
+        "Sensor forecasting",
+        "Model calibration"
+      ]
+    },
+    {
+      "name": "Data & analytics",
+      "description": "SQL, geospatial analysis and interactive dashboards, supported by Oracle SQL and NPTEL GIS credentials.",
+      "items": [
+        "SQL",
+        "Oracle SQL",
+        "Power BI",
+        "Pandas",
+        "NumPy",
+        "DAX",
+        "GIS",
+        "PostGIS",
+        "Data visualisation"
+      ]
+    },
+    {
+      "name": "DevOps & tools",
+      "description": "Reproducible demos, automated checks and static or full-stack deployments.",
+      "items": [
+        "Git & GitHub",
+        "GitHub Actions",
+        "Docker Compose",
+        "Vercel",
+        "Netlify",
+        "Render",
+        "pytest",
+        "Playwright"
+      ]
+    },
+    {
+      "name": "Languages",
+      "description": "Languages used across application interfaces, APIs and analytical pipelines, with certified Java foundations.",
+      "items": [
+        "Python",
+        "TypeScript",
+        "JavaScript",
+        "SQL",
+        "Java",
+        "HTML",
+        "CSS"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "id": "kinsight",
+      "title": "KinSight — Inherited-Risk Navigator",
+      "shortTitle": "KinSight",
+      "category": "Healthcare",
+      "year": "2026",
+      "description": "A multilingual screening-result navigator with couple consent, a counsellor console, referrals and a chat/voice assistant. Seven languages, accessible explanations and a traceable audit trail; all people and results are synthetic.",
+      "tech": [
+        "Next.js",
+        "TypeScript",
+        "React",
+        "Multilingual UX",
+        "Consent & audit"
+      ],
+      "status": "Fictional demo",
+      "source": "https://github.com/loktrishal-05/kinsight",
+      "demo": "https://kinsight-five.vercel.app",
+      "image": "/projects/kinsight.webp",
+      "imageAlt": "KinSight — Inherited-Risk Navigator application screenshot",
+      "featured": true,
+      "imageCaption": "Application screenshot",
+      "filterGroup": "Web & product",
+      "imageWidth": 1440,
+      "imageHeight": 900
+    },
+    {
+      "id": "solarda",
+      "title": "Solarda — Agentic Smart Agriculture",
+      "shortTitle": "Solarda",
+      "category": "Agriculture",
+      "year": "2026",
+      "description": "LangGraph farm agents combine irrigation planning, plant-disease vision, sensor forecasting and a six-language Gemini assistant. A deterministic safety engine and human approval govern actions. Uses replayed data; the hosted preview needs a backend for agent features.",
+      "tech": [
+        "Python",
+        "FastAPI",
+        "LangGraph",
+        "TypeScript",
+        "ONNX",
+        "Docker"
+      ],
+      "status": "UI preview",
+      "source": "https://github.com/loktrishal-05/Solar-Da",
+      "demo": "https://solarda.vercel.app",
+      "image": "/projects/solarda.webp",
+      "imageAlt": "Solarda — Agentic Smart Agriculture application screenshot",
+      "featured": true,
+      "imageCaption": "Application screenshot",
+      "filterGroup": "AI & ML",
+      "imageWidth": 1440,
+      "imageHeight": 632
+    },
+    {
+      "id": "exodetect",
+      "title": "ExoDetect — Exoplanet Detection",
+      "shortTitle": "ExoDetect",
+      "category": "Scientific ML",
+      "year": "2026",
+      "description": "Kepler light-curve processing, transit features and a calibrated XGBoost classifier for the ISRO Bhartiya Antariksh Hackathon 2026. The dashboard runs exported ONNX inference in the browser; heavy light-curve analysis stays in Python.",
+      "tech": [
+        "Python",
+        "XGBoost",
+        "ONNX Runtime Web",
+        "FastAPI",
+        "NASA Kepler"
+      ],
+      "status": "Browser model demo",
+      "source": "https://github.com/loktrishal-05/exoplanet-detection",
+      "demo": "https://exodetect-isro-bah.netlify.app",
+      "image": "/projects/exodetect.webp",
+      "imageAlt": "ExoDetect — Exoplanet Detection application screenshot",
+      "featured": true,
+      "imageCaption": "Application screenshot",
+      "filterGroup": "AI & ML",
+      "imageWidth": 1440,
+      "imageHeight": 900
+    },
+    {
+      "id": "legal",
+      "title": "Legal & Regulatory Assurance Platform",
+      "shortTitle": "Legal & Regulatory Assurance Platform",
+      "category": "Document intelligence",
+      "year": "2026",
+      "description": "An evidence-first platform for contract intelligence, regulatory change and compliance workflows. Source provenance, scoped access and human review form the foundation; integrated legal analysis and summary workflows remain in development.",
+      "tech": [
+        "FastAPI",
+        "React",
+        "PostgreSQL",
+        "Document extraction",
+        "Private AI"
+      ],
+      "status": "In development",
+      "source": "https://github.com/loktrishal-05/legal-compliance-regulatory-workbench",
+      "demo": null,
+      "image": "/projects/legal.webp",
+      "imageAlt": "Concept illustration for Legal & Regulatory Assurance Platform, not a screenshot of the application",
+      "featured": true,
+      "imageCaption": "Concept illustration - in development",
+      "filterGroup": "AI & ML",
+      "imageWidth": 1440,
+      "imageHeight": 480
+    },
+    {
+      "id": "nwis",
+      "title": "eRTMAC-NWIS — Nearby Wells Intelligence",
+      "shortTitle": "eRTMAC-NWIS",
+      "category": "Geospatial intelligence",
+      "year": "2026",
+      "description": "Nearby-well search, formation correlation and evidence-grounded drilling advisories using PostGIS, local retrieval and LangGraph. Built for SIH 2026 problem SIH26121 with synthetic data and replayed telemetry; advisory-only, with an engineer making decisions.",
+      "tech": [
+        "Python",
+        "FastAPI",
+        "React",
+        "PostGIS",
+        "Qdrant",
+        "LangGraph"
+      ],
+      "status": "Synthetic prototype",
+      "source": "https://github.com/loktrishal-05/ertmac-nwis",
+      "demo": null,
+      "image": "/projects/nwis.webp",
+      "imageAlt": "Concept illustration for eRTMAC-NWIS — Nearby Wells Intelligence, not a screenshot of the application",
+      "featured": true,
+      "imageCaption": "Concept illustration - synthetic-data prototype",
+      "filterGroup": "AI & ML",
+      "imageWidth": 1440,
+      "imageHeight": 480
+    },
+    {
+      "id": "edunova",
+      "title": "EduNova — Gamified Science Learning",
+      "shortTitle": "EduNova",
+      "category": "Education",
+      "year": "2026",
+      "description": "Story-driven biology, chemistry and physics learning worlds with video quests, quizzes and a parent/teacher portal. Interactive Three.js scenes and React Three Fiber shaders support the learning experience.",
+      "tech": [
+        "Next.js",
+        "TypeScript",
+        "Three.js",
+        "React Three Fiber",
+        "GSAP",
+        "Zustand"
+      ],
+      "status": "Learning demo",
+      "source": "https://github.com/loktrishal-05/EduNova",
+      "demo": "https://edu-nova-dun.vercel.app",
+      "image": "/projects/edunova.webp",
+      "imageAlt": "EduNova — Gamified Science Learning application screenshot",
+      "featured": true,
+      "imageCaption": "Application screenshot",
+      "filterGroup": "Web & product",
+      "imageWidth": 1440,
+      "imageHeight": 900
+    },
+    {
+      "id": "sri-ambal",
+      "title": "Sri Ambal Healthcare",
+      "shortTitle": "Sri Ambal Healthcare",
+      "category": "Healthcare",
+      "year": "2026",
+      "description": "A multi-specialty hospital website with a doctor directory, gallery, appointment booking, Gemini chatbot and WhatsApp confirmation flow. Built with Supabase and Google Sheets integrations.",
+      "tech": [
+        "JavaScript",
+        "Supabase",
+        "Google Sheets",
+        "Gemini API"
+      ],
+      "status": "Website project",
+      "source": "https://github.com/loktrishal-05/sri-ambal-healthcare",
+      "demo": "https://sri-ambal-healthcare.vercel.app",
+      "image": null,
+      "imageAlt": null,
+      "featured": false,
+      "filterGroup": "Web & product"
+    },
+    {
+      "id": "resumeforge",
+      "title": "ResumeForge AI",
+      "shortTitle": "ResumeForge AI",
+      "category": "Developer tools",
+      "year": "Earlier work",
+      "description": "AI-powered resume-builder work with a LangGraph agent pipeline, resume generation and a Next.js interface. The public resume-io repository contains the resume-builder source.",
+      "tech": [
+        "Next.js",
+        "LangGraph",
+        "Gemini API",
+        "Supabase",
+        "GSAP"
+      ],
+      "status": "Earlier work",
+      "source": "https://github.com/loktrishal-05/resume-io",
+      "demo": null,
+      "image": null,
+      "imageAlt": null,
+      "featured": false,
+      "filterGroup": "AI & ML"
+    },
+    {
+      "id": "peopleramp",
+      "title": "PeopleRamp — AI Onboarding",
+      "shortTitle": "PeopleRamp",
+      "category": "Workplace",
+      "year": "Earlier work",
+      "description": "Personalized employee onboarding built at a Siruseri hackathon, exploring voice, text and camera interactions.",
+      "tech": [
+        "React / Vite",
+        "Node.js",
+        "MongoDB",
+        "Gemini API"
+      ],
+      "status": "Earlier work",
+      "source": null,
+      "demo": "https://ai-onboarding-assist-7a9m.bolt.host",
+      "image": null,
+      "imageAlt": null,
+      "featured": false,
+      "filterGroup": "Web & product"
+    },
+    {
+      "id": "ghostiq",
+      "title": "GhostIQ — Ghosting Score",
+      "shortTitle": "GhostIQ",
+      "category": "Consumer AI",
+      "year": "Earlier work",
+      "description": "An AI-powered project exploring behavioural patterns and ghosting scores with a React interface and Gemini integration.",
+      "tech": [
+        "React",
+        "Node.js",
+        "Gemini API"
+      ],
+      "status": "Earlier work",
+      "source": "https://github.com/loktrishal-05/GhostIQ",
+      "demo": "https://ghost-iq-frontend.vercel.app",
+      "image": null,
+      "imageAlt": null,
+      "featured": false,
+      "filterGroup": "AI & ML"
+    },
+    {
+      "id": "sentinelpay",
+      "title": "SentinelPay — UPI Fraud AI",
+      "shortTitle": "SentinelPay",
+      "category": "Fintech",
+      "year": "Earlier work",
+      "description": "A UPI fraud-detection project exploring Gemini-assisted transaction risk scoring, with a React interface and Node.js backend.",
+      "tech": [
+        "React",
+        "Node.js",
+        "MongoDB",
+        "Gemini API"
+      ],
+      "status": "Earlier work",
+      "source": null,
+      "demo": "https://sentinelpay-frontend.vercel.app/",
+      "image": null,
+      "imageAlt": null,
+      "featured": false,
+      "filterGroup": "AI & ML"
+    },
+    {
+      "id": "onboardiq",
+      "title": "OnboardIQ — AI Onboarding Platform",
+      "shortTitle": "OnboardIQ",
+      "category": "Workplace",
+      "year": "Earlier work",
+      "description": "An employee-onboarding platform with AI-generated plans, a chatbot, authentication and 30-60-90 day progress tracking, plus a Three.js landing page.",
+      "tech": [
+        "React",
+        "Three.js",
+        "GSAP",
+        "Gemini API",
+        "TypeScript"
+      ],
+      "status": "Earlier work",
+      "source": null,
+      "demo": "https://onboardiq-main.vercel.app/",
+      "image": null,
+      "imageAlt": null,
+      "featured": false,
+      "filterGroup": "Web & product"
+    },
+    {
+      "id": "power-bi",
+      "title": "Amazon Sales — Power BI Dashboard",
+      "shortTitle": "Amazon Sales",
+      "category": "Analytics",
+      "year": "Earlier work",
+      "description": "Cleaned Amazon sales data and built interactive dashboards with KPIs, trend charts, regional breakdowns and category performance insights.",
+      "tech": [
+        "Power BI",
+        "Data Visualization",
+        "DAX",
+        "SQL"
+      ],
+      "status": "Analytics project",
+      "source": "https://github.com/loktrishal-05/power-bi",
+      "demo": "https://www.linkedin.com/posts/loktrishal-k-230294376_powerbi-datavisualization-analytics-activity-7360933692157939712-2czn",
+      "image": null,
+      "imageAlt": null,
+      "featured": false,
+      "filterGroup": "Data & analytics"
+    }
+  ],
+  "credentials": [
+    {
+      "title": "Cyber AI Hackathon 2026 — Innovation Award (team Unexpectedly_Qualified)",
+      "issuer": "University of Derby, UK; technically supported by AMSE, USA",
+      "date": "2026-10-11",
+      "id": "credential-1",
+      "type": "Award",
+      "category": "Award"
+    },
+    {
+      "title": "PrototypeX — Winner, IES Summit 2026",
+      "issuer": "Jeppiaar Engineering College, Department of CSE",
+      "date": "2026-09-18",
+      "id": "credential-2",
+      "type": "Award",
+      "category": "Award"
+    },
+    {
+      "title": "Oracle AI Database SQL Certified Associate",
+      "issuer": "Oracle University",
+      "date": "2026-08-18",
+      "id": "credential-3",
+      "type": "Certification",
+      "category": "Certification"
+    },
+    {
+      "title": "Geographic Information Systems — Elite, 68% (12-week course, Jan–Apr 2026)",
+      "issuer": "NPTEL / IIT Roorkee",
+      "id": "credential-4",
+      "type": "Certification",
+      "category": "Certification"
+    },
+    {
+      "title": "Introduction to Deep Learning",
+      "issuer": "Infosys Springboard",
+      "date": "2026-07-23",
+      "id": "credential-5",
+      "type": "Certification",
+      "category": "Certification"
+    },
+    {
+      "title": "Java Foundation Certification",
+      "issuer": "Infosys Springboard",
+      "date": "2025-04-20",
+      "id": "credential-6",
+      "type": "Certification",
+      "category": "Certification"
+    },
+    {
+      "title": "Programming using Java",
+      "issuer": "Infosys Springboard",
+      "date": "2025-04-20",
+      "id": "credential-7",
+      "type": "Certification",
+      "category": "Certification"
+    },
+    {
+      "title": "Basics of Python",
+      "issuer": "Infosys Springboard",
+      "date": "2025-04-20",
+      "id": "credential-8",
+      "type": "Certification",
+      "category": "Certification"
+    },
+    {
+      "title": "Software Engineering and Agile Software development",
+      "issuer": "Infosys Springboard",
+      "date": "2024-12-02",
+      "id": "credential-9",
+      "type": "Certification",
+      "category": "Certification"
+    },
+    {
+      "title": "AI for Beginners",
+      "issuer": "HP LIFE / HP Foundation",
+      "date": "2025-07-26",
+      "id": "credential-10",
+      "type": "Certification",
+      "category": "Certification"
+    },
+    {
+      "title": "PowerBI Workshop — Completion",
+      "issuer": "OfficeMaster",
+      "date": "2025-08-10",
+      "id": "credential-11",
+      "type": "Certification",
+      "category": "Certification"
+    },
+    {
+      "title": "Bharatiya Antariksh Hackathon 2026 — Participation and successful idea submission",
+      "issuer": "ISRO / Hack2skill",
+      "id": "credential-12",
+      "type": "Participation",
+      "category": "Participation"
+    },
+    {
+      "title": "HackWithHyderabad 3.0 — Participation (Microsoft Office, Hyderabad)",
+      "issuer": "Hack With India × Devnovate",
+      "date": "2026-10-03",
+      "id": "credential-13",
+      "type": "Participation",
+      "category": "Participation"
+    },
+    {
+      "title": "DECODE SIH 2026 — Participation",
+      "issuer": "OSCode",
+      "id": "credential-14",
+      "type": "Participation",
+      "category": "Participation"
+    },
+    {
+      "title": "DEV HOURS National Level Codeathon — Participation",
+      "issuer": "IEEE Student Branch, R.M.K. College of Engineering and Technology",
+      "date": "2026-02-21",
+      "id": "credential-15",
+      "type": "Participation",
+      "category": "Participation"
+    },
+    {
+      "title": "MET Escape Room, Chakravyuha ’26 — Certificate of Appreciation",
+      "issuer": "MITMeT, Madras Institute of Technology, Anna University",
+      "id": "credential-16",
+      "type": "Recognition",
+      "category": "Recognition"
+    }
+  ],
+  "contact": {
+    "heading": "Have something worth building?",
+    "description": "I'm open to internships, thoughtful collaborations and difficult questions. If the work needs AI, data and a useful interface, I'd love to hear about it.",
+    "emailLabel": "Write to me",
+    "socialLabel": "Find me elsewhere",
+    "availability": "Chennai + remote"
+  },
+  "labels": {
+    "selectedWork": "Selected work",
+    "allProjects": "More explorations",
+    "viewSource": "View source",
+    "viewDemo": "Open project",
+    "source": "Source",
+    "demo": "Open demo",
+    "earlierWork": "Earlier work",
+    "showMore": "Show all projects",
+    "showLess": "Show less",
+    "play": "Play introduction",
+    "pause": "Pause introduction",
+    "skip": "Skip intro",
+    "replay": "Replay introduction",
+    "menu": "Open menu",
+    "closeMenu": "Close menu",
+    "loading": "Loading portfolio...",
+    "contentError": "The portfolio could not load. Please refresh or email loktrishal.k@gmail.com.",
+    "retry": "Try again",
+    "allFilter": "All work",
+    "filmFinished": "Introduction finished",
+    "filmUnavailable": "The introduction is unavailable. You can still explore all my work.",
+    "skipToContent": "Skip to content",
+    "footerNote": "Built with care in Chennai.",
+    "skillsHeading": "A connected toolkit.",
+    "credentialsHeading": "Learning, recognised.",
+    "filterLabel": "Filter projects",
+    "credentialsDescription": "Professional certifications, course completions and competition recognition, transcribed from my supplied certificates.",
+    "credentialsNote": "Course completion, participation and awards are labelled individually. Dates are completion or event dates where provided.",
+    "projectNote": "Demo and prototype limits are included in each project description.",
+    "featuredLabel": "Selected project",
+    "projectImageFallback": "Explore the project source for implementation details.",
+    "close": "Close",
+    "emailCopied": "Email address copied",
+    "copyEmail": "Copy email address",
+    "copyFailed": "Could not copy. Please use the email link.",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "email": "Email",
+    "education": "Education",
+    "year": "Year",
+    "technology": "Built with",
+    "projectsEmpty": "No projects match this category. Choose All work to see every project.",
+    "credentialsEmpty": "No credentials listed yet.",
+    "externalLink": "Opens in a new tab",
+    "backToTop": "Back to top",
+    "copyright": "Copyright 2026 Loktrishal K",
+    "aboutLabel": "About me",
+    "workDescription": "A selection of experiments, working demos and systems in progress. Different domains, one intention: make complexity useful.",
+    "recognitionLabel": "Certifications & achievements",
+    "seeAllCredentials": "See all credentials",
+    "portraitCaption": "An original 3D avatar, created from my photograph.",
+    "scrollHint": "Scroll to explore",
+    "videoProgress": "Introduction playback progress",
+    "filterAi": "AI & ML",
+    "filterWeb": "Web & product",
+    "filterData": "Data & analytics"
+  },
+  "meta": {
+    "title": "Loktrishal K - AI, Data Science & Full-stack Developer",
+    "description": "Explore Loktrishal K's projects in AI, machine learning and full-stack development, plus certifications and hackathon recognition. Based in Chennai, India.",
+    "language": "en",
+    "contentSnapshot": "2026-11-02"
+  }
+}

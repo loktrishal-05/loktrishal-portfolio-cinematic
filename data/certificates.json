@@ -1,0 +1,126 @@
+[
+  {
+    "title": "Cyber AI Hackathon 2026 — Innovation Award (team Unexpectedly_Qualified)",
+    "issuer": "University of Derby, UK; technically supported by AMSE, USA",
+    "date": "2026-10-11",
+    "id": "credential-1",
+    "type": "Award",
+    "category": "Award"
+  },
+  {
+    "title": "PrototypeX — Winner, IES Summit 2026",
+    "issuer": "Jeppiaar Engineering College, Department of CSE",
+    "date": "2026-09-18",
+    "id": "credential-2",
+    "type": "Award",
+    "category": "Award"
+  },
+  {
+    "title": "Oracle AI Database SQL Certified Associate",
+    "issuer": "Oracle University",
+    "date": "2026-08-18",
+    "id": "credential-3",
+    "type": "Certification",
+    "category": "Certification"
+  },
+  {
+    "title": "Geographic Information Systems — Elite, 68% (12-week course, Jan–Apr 2026)",
+    "issuer": "NPTEL / IIT Roorkee",
+    "id": "credential-4",
+    "type": "Certification",
+    "category": "Certification"
+  },
+  {
+    "title": "Introduction to Deep Learning",
+    "issuer": "Infosys Springboard",
+    "date": "2026-07-23",
+    "id": "credential-5",
+    "type": "Certification",
+    "category": "Certification"
+  },
+  {
+    "title": "Java Foundation Certification",
+    "issuer": "Infosys Springboard",
+    "date": "2025-04-20",
+    "id": "credential-6",
+    "type": "Certification",
+    "category": "Certification"
+  },
+  {
+    "title": "Programming using Java",
+    "issuer": "Infosys Springboard",
+    "date": "2025-04-20",
+    "id": "credential-7",
+    "type": "Certification",
+    "category": "Certification"
+  },
+  {
+    "title": "Basics of Python",
+    "issuer": "Infosys Springboard",
+    "date": "2025-04-20",
+    "id": "credential-8",
+    "type": "Certification",
+    "category": "Certification"
+  },
+  {
+    "title": "Software Engineering and Agile Software development",
+    "issuer": "Infosys Springboard",
+    "date": "2024-12-02",
+    "id": "credential-9",
+    "type": "Certification",
+    "category": "Certification"
+  },
+  {
+    "title": "AI for Beginners",
+    "issuer": "HP LIFE / HP Foundation",
+    "date": "2025-07-26",
+    "id": "credential-10",
+    "type": "Certification",
+    "category": "Certification"
+  },
+  {
+    "title": "PowerBI Workshop — Completion",
+    "issuer": "OfficeMaster",
+    "date": "2025-08-10",
+    "id": "credential-11",
+    "type": "Certification",
+    "category": "Certification"
+  },
+  {
+    "title": "Bharatiya Antariksh Hackathon 2026 — Participation and successful idea submission",
+    "issuer": "ISRO / Hack2skill",
+    "id": "credential-12",
+    "type": "Participation",
+    "category": "Participation"
+  },
+  {
+    "title": "HackWithHyderabad 3.0 — Participation (Microsoft Office, Hyderabad)",
+    "issuer": "Hack With India × Devnovate",
+    "date": "2026-10-03",
+    "id": "credential-13",
+    "type": "Participation",
+    "category": "Participation"
+  },
+  {
+    "title": "DECODE SIH 2026 — Participation",
+    "issuer": "OSCode",
+    "id": "credential-14",
+    "type": "Participation",
+    "category": "Participation"
+  },
+  {
+    "title": "DEV HOURS National Level Codeathon — Participation",
+    "issuer": "IEEE Student Branch, R.M.K. College of Engineering and Technology",
+    "date": "2026-02-21",
+    "id": "credential-15",
+    "type": "Participation",
+    "category": "Participation"
+  },
+  {
+    "title": "MET Escape Room, Chakravyuha ’26 — Certificate of Appreciation",
+    "issuer": "MITMeT, Madras Institute of Technology, Anna University",
+    "id": "credential-16",
+    "type": "Recognition",
+    "category": "Recognition"
+  }
+]

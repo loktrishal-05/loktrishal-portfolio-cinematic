@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#F4F1E9">
+  <meta name="description" content="Loktrishal K builds useful experiences with AI, data science and full-stack engineering. Explore projects, certifications and recognition.">
+  <title>Loktrishal K — AI, Data Science & Full-stack Developer</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="/fonts/bricolage-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/source-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/media/hero-end.webp" as="image" fetchpriority="high">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/vendor/gsap.min.js" defer></script>
+  <script type="module" src="/app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main" data-copy="labels.skipToContent">Skip to content</a>
+  <header class="site-header">
+    <a class="identity" href="#top"><span class="identity-mark">L<span>K</span></span><span class="identity-name" data-copy="profile.name">Loktrishal K</span></a>
+    <nav class="desktop-nav" aria-label="Main navigation" data-nav>
+      <a href="#work">Work</a><a href="#about">About</a><a href="#skills">Expertise</a><a href="#credentials">Recognition</a>
+    </nav>
+    <a class="header-contact" href="#contact"><span data-copy="hero.secondaryCta">Let's talk</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg></a>
+    <button class="menu-toggle icon-button" id="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg></button>
+  </header>
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" hidden></nav>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero-media" id="hero-media" data-state="poster">
+        <img class="hero-poster" id="hero-poster" src="/media/hero-end.webp" alt="A cinematic 3D avatar of Loktrishal in a bright architectural studio" width="1920" height="1080" fetchpriority="high">
+        <video id="hero-video" muted playsinline preload="none" poster="/media/hero-end.webp" aria-label="An introduction, in motion" tabindex="-1"></video>
+        <div class="hero-media-veil" aria-hidden="true"></div>
+      </div>
+      <div class="hero-content">
+        <h1 id="hero-title"><span>I build intelligence</span><span>people can use.</span></h1>
+        <p class="hero-description" data-copy="hero.description">I'm Loktrishal, an AI &amp; Data Science student connecting machine learning, thoughtful interfaces and real-world questions.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#work"><span data-copy="hero.primaryCta">Explore my work</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+          <a class="button button-text" href="#about"><span data-copy="navigation.1.label">About</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14m-6-6 6 6 6-6"/></svg></a>
+        </div>
+        <p class="hero-person"><span class="availability-dot" aria-hidden="true"></span><span data-copy="profile.availability">Open to internships &amp; collaboration</span></p>
+      </div>
+      <div class="film-controls" aria-label="Introduction controls">
+        <button class="film-control" id="film-toggle" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 11 7-11 7Z"/></svg><span data-copy="labels.play">Play introduction</span></button>
+        <button class="film-control" id="film-skip" type="button" hidden><span data-copy="labels.skip">Skip intro</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 5 10 7-10 7ZM20 5v14"/></svg></button>
+        <button class="film-control" id="film-replay" type="button" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10a8 8 0 1 1 1 7M4 4v6h6"/></svg><span data-copy="labels.replay">Replay introduction</span></button>
+      </div>
+      <progress class="film-progress" id="film-progress" value="0" max="1" aria-label="Introduction playback progress" hidden></progress>
+      <p class="sr-only" id="film-status" role="status" aria-live="polite"></p>
+      <div class="hero-footer"><p data-copy="profile.role">AI &amp; Data Science / Full-stack development</p><a href="#work"><span data-copy="labels.scrollHint">Scroll to explore</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v16m-6-6 6 6 6-6"/></svg></a><p data-copy="profile.location">Chennai, India</p></div>
+    </section>
+
+    <div class="content-error wrap" id="content-error" role="status" hidden><p>The portfolio details could not load. You can still contact me at <a href="mailto:loktrishal.k@gmail.com">loktrishal.k@gmail.com</a>.</p><button class="button button-outline" id="content-retry" type="button">Try again</button></div>
+
+    <section class="work section-space wrap" id="work" aria-labelledby="work-title">
+      <div class="section-heading"><h2 id="work-title" data-copy="labels.selectedWork">Selected work</h2><p data-copy="labels.workDescription">Experiments, working demos and systems in progress. Different domains, one intention: make complexity useful.</p></div>
+      <div class="work-toolbar"><div class="filters" id="project-filters" role="group" aria-label="Filter projects"></div><p class="work-note" data-copy="labels.projectNote">Demo and prototype limits are included in each project description.</p></div>
+      <div class="project-list" id="project-list" aria-live="polite" aria-busy="true"></div>
+      <div class="more-work"><button class="button button-outline" id="show-projects" type="button" hidden><span data-copy="labels.showMore">Show all projects</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button></div>
+    </section>
+
+    <section class="about section-space" id="about" aria-labelledby="about-title">
+      <div class="wrap about-grid">
+        <figure class="portrait"><div class="portrait-frame"><img src="/brand/avatar.webp" width="1024" height="1024" alt="Loktrishal's original 3D avatar" loading="lazy" decoding="async"></div><figcaption data-copy="labels.portraitCaption">An original 3D avatar, created from my photograph.</figcaption></figure>
+        <div class="about-copy"><h2 id="about-title" data-copy="about.heading">Curiosity, made useful.</h2><p class="about-statement" data-copy="about.statement">The most interesting part of AI is what people can do with it.</p><div id="about-paragraphs"></div><div class="education" id="education"></div><a class="inline-link" href="#credentials"><span data-copy="labels.seeAllCredentials">See all credentials</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a></div>
+      </div>
+    </section>
+
+    <section class="skills section-space wrap" id="skills" aria-labelledby="skills-title">
+      <div class="section-heading"><h2 id="skills-title" data-copy="labels.skillsHeading">A connected toolkit.</h2><p data-copy="profile.role">AI &amp; Data Science / Full-stack development</p></div>
+      <div class="skill-list" id="skill-list"></div>
+    </section>
+
+    <section class="credentials section-space" id="credentials" aria-labelledby="credentials-title"><div class="wrap">
+      <div class="section-heading"><h2 id="credentials-title" data-copy="labels.credentialsHeading">Learning, recognised.</h2><p data-copy="labels.credentialsDescription">Professional certifications, course completions and competition recognition.</p></div>
+      <div class="credential-list" id="credential-list"></div>
+      <p class="section-note" data-copy="labels.credentialsNote">Course completion, participation and awards are labelled individually. Dates are completion or event dates where provided.</p>
+    </div></section>
+
+    <section class="contact section-space wrap" id="contact" aria-labelledby="contact-title">
+      <div class="contact-intro"><h2 id="contact-title" data-copy="contact.heading">Have something worth building?</h2><p data-copy="contact.description">I'm open to internships, thoughtful collaborations and difficult questions.</p></div>
+      <div class="contact-actions"><a class="contact-email" id="contact-email" href="mailto:loktrishal.k@gmail.com"><span data-copy="profile.email">loktrishal.k@gmail.com</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg></a><div class="contact-bottom"><p><span class="availability-dot" aria-hidden="true"></span><span data-copy="contact.availability">Chennai + remote</span></p><div><a class="inline-link" id="github-link" href="https://github.com/loktrishal-05" target="_blank" rel="noopener noreferrer"><span data-copy="labels.github">GitHub</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a><a class="inline-link" id="linkedin-link" href="https://www.linkedin.com/in/loktrishal-k-230294376/" target="_blank" rel="noopener noreferrer"><span data-copy="labels.linkedin">LinkedIn</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a></div></div></div>
+    </section>
+  </main>
+  <footer class="site-footer wrap"><p data-copy="labels.copyright">© 2026 Loktrishal K</p><p data-copy="labels.footerNote">Built with care in Chennai.</p><a href="#top"><span data-copy="labels.backToTop">Back to top</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20V4m-6 6 6-6 6 6"/></svg></a></footer>
+  <noscript><div class="noscript-note wrap">JavaScript is disabled. View my projects on <a href="https://github.com/loktrishal-05">GitHub</a> or <a href="mailto:loktrishal.k@gmail.com">email me</a>.</div></noscript>
+</body>
+</html>
