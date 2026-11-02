@@ -1,0 +1,138 @@
+{
+  "base": "http://127.0.0.1:8770",
+  "date": "2026-11-02T11:10:10.813Z",
+  "viewports": [
+    {
+      "width": 360,
+      "geometry": {
+        "viewport": 360,
+        "document": 360,
+        "lcpMs": 568
+      },
+      "firstState": "poster",
+      "errors": [],
+      "failures": [],
+      "undersizedTargets": [],
+      "violations": []
+    },
+    {
+      "width": 768,
+      "geometry": {
+        "viewport": 768,
+        "document": 768,
+        "lcpMs": 208
+      },
+      "firstState": "poster",
+      "errors": [],
+      "failures": [],
+      "undersizedTargets": [],
+      "violations": []
+    },
+    {
+      "width": 1280,
+      "geometry": {
+        "viewport": 1280,
+        "document": 1280,
+        "lcpMs": 452
+      },
+      "firstState": "playing",
+      "errors": [],
+      "failures": [],
+      "undersizedTargets": [],
+      "violations": []
+    },
+    {
+      "width": 1920,
+      "geometry": {
+        "viewport": 1920,
+        "document": 1920,
+        "lcpMs": 356
+      },
+      "firstState": "playing",
+      "errors": [],
+      "failures": [],
+      "undersizedTargets": [],
+      "violations": []
+    }
+  ],
+  "scenarios": [
+    {
+      "scenario": "reduced-motion",
+      "state": "poster",
+      "video": {
+        "paused": true,
+        "currentTime": 0,
+        "hasSource": false
+      },
+      "videoRequests": 0,
+      "readyMs": 1041,
+      "passed": true
+    },
+    {
+      "scenario": "save-data",
+      "state": "poster",
+      "video": {
+        "paused": true,
+        "currentTime": 0,
+        "hasSource": false
+      },
+      "videoRequests": 0,
+      "readyMs": 1191,
+      "passed": true
+    },
+    {
+      "scenario": "missing-video",
+      "state": "poster",
+      "video": {
+        "paused": true,
+        "currentTime": 0,
+        "hasSource": true
+      },
+      "videoRequests": 1,
+      "readyMs": 2465,
+      "passed": true
+    },
+    {
+      "scenario": "missing-copy",
+      "state": "playing",
+      "video": {
+        "paused": false,
+        "currentTime": 0.2224,
+        "hasSource": true
+      },
+      "videoRequests": 1,
+      "readyMs": 1128,
+      "passed": true
+    },
+    {
+      "scenario": "keyboard",
+      "state": "playing",
+      "video": {
+        "paused": false,
+        "currentTime": 0.2007,
+        "hasSource": true
+      },
+      "videoRequests": 1,
+      "readyMs": 1188,
+      "keyboard": {
+        "text": "Skip to content",
+        "visibleFocus": true,
+        "outline": "solid"
+      },
+      "passed": true
+    },
+    {
+      "scenario": "slow-3g",
+      "state": "playing",
+      "video": {
+        "paused": false,
+        "currentTime": 0.0656,
+        "hasSource": true
+      },
+      "videoRequests": 1,
+      "readyMs": 19379,
+      "passed": true
+    }
+  ],
+  "confirmation": "Brand link uses its visible native text rather than an overriding accessible name; axe confirmed all four widths."
+}

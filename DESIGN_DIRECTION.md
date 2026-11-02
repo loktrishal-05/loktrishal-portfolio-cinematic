@@ -1,6 +1,6 @@
 # Loktrishal K — The Arrival
 
-**Proposal for approval; no visual redesign has been implemented.**
+**Approved direction. Implementation authorized with the supplied avatar film on 2 November 2026.**
 
 ## Project brief
 
@@ -115,6 +115,6 @@ The generic master template's **no-faces rule has one explicit exception**: the 
 
 Target website delivery budgets, to measure after actual generation: intro MP4 + WebM alternatives, serve one codec rather than downloading both; selected intro asset ideally ≤4MB, poster ≤180KB, all optional clips lazy-loaded. At 10fps, three 8-second films would yield 240 frames if a later approved direction chooses a canvas sequence; this proposal does not need frame extraction or a frame loader.
 
-## Approval checkpoint
+## Approval record
 
-Approve or adjust: **warm ivory + clay accent, Bricolage/Source Sans, an original daylight avatar MVP entrance, and a project-first editorial portfolio.** Website implementation and media wiring wait for approval and the generated files.
+The owner supplied the generated assets and explicitly instructed implementation in a new repository with a new Vercel deployment. The warm ivory/clay palette, Bricolage/Source Sans typography and project-first structure carry forward. Only one film was supplied: the optional three-chapter media sequence is replaced by the actual edited entrance and real project visuals, with native scrolling and no unnecessary WebGL or scroll library.

@@ -1,0 +1,289 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-02T11:11:45.613581+00:00",
+  "title": "Design System: Loktrishal K - The Arrival",
+  "extensions": {
+    "colorMeta": {
+      "ground": {
+        "role": "neutral",
+        "displayName": "Ground",
+        "canonical": "#f4f1e9",
+        "tonalRamp": [
+          "oklch(15% 0.0111 89.72)",
+          "oklch(26% 0.0111 89.72)",
+          "oklch(38% 0.0111 89.72)",
+          "oklch(50% 0.0111 89.72)",
+          "oklch(62% 0.0111 89.72)",
+          "oklch(74% 0.0111 89.72)",
+          "oklch(86% 0.0111 89.72)",
+          "oklch(95% 0.0111 89.72)"
+        ]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Surface",
+        "canonical": "#e8e4da",
+        "tonalRamp": [
+          "oklch(15% 0.0141 88.69)",
+          "oklch(26% 0.0141 88.69)",
+          "oklch(38% 0.0141 88.69)",
+          "oklch(50% 0.0141 88.69)",
+          "oklch(62% 0.0141 88.69)",
+          "oklch(74% 0.0141 88.69)",
+          "oklch(86% 0.0141 88.69)",
+          "oklch(95% 0.0141 88.69)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#26332f",
+        "tonalRamp": [
+          "oklch(15% 0.0189 174.25)",
+          "oklch(26% 0.0189 174.25)",
+          "oklch(38% 0.0189 174.25)",
+          "oklch(50% 0.0189 174.25)",
+          "oklch(62% 0.0189 174.25)",
+          "oklch(74% 0.0189 174.25)",
+          "oklch(86% 0.0189 174.25)",
+          "oklch(95% 0.0189 174.25)"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Muted",
+        "canonical": "#56615b",
+        "tonalRamp": [
+          "oklch(15% 0.0166 161.96)",
+          "oklch(26% 0.0166 161.96)",
+          "oklch(38% 0.0166 161.96)",
+          "oklch(50% 0.0166 161.96)",
+          "oklch(62% 0.0166 161.96)",
+          "oklch(74% 0.0166 161.96)",
+          "oklch(86% 0.0166 161.96)",
+          "oklch(95% 0.0166 161.96)"
+        ]
+      },
+      "accent": {
+        "role": "primary",
+        "displayName": "Accent",
+        "canonical": "#a33e2b",
+        "tonalRamp": [
+          "oklch(15% 0.1380 32.65)",
+          "oklch(26% 0.1380 32.65)",
+          "oklch(38% 0.1380 32.65)",
+          "oklch(50% 0.1380 32.65)",
+          "oklch(62% 0.1380 32.65)",
+          "oklch(74% 0.1380 32.65)",
+          "oklch(86% 0.1380 32.65)",
+          "oklch(95% 0.1380 32.65)"
+        ]
+      },
+      "accent-hover": {
+        "role": "primary",
+        "displayName": "Accent Hover",
+        "canonical": "#823121",
+        "tonalRamp": [
+          "oklch(15% 0.1156 33.02)",
+          "oklch(26% 0.1156 33.02)",
+          "oklch(38% 0.1156 33.02)",
+          "oklch(50% 0.1156 33.02)",
+          "oklch(62% 0.1156 33.02)",
+          "oklch(74% 0.1156 33.02)",
+          "oklch(86% 0.1156 33.02)",
+          "oklch(95% 0.1156 33.02)"
+        ]
+      },
+      "success": {
+        "role": "semantic",
+        "displayName": "Success",
+        "canonical": "#326649",
+        "tonalRamp": [
+          "oklch(15% 0.0739 157.39)",
+          "oklch(26% 0.0739 157.39)",
+          "oklch(38% 0.0739 157.39)",
+          "oklch(50% 0.0739 157.39)",
+          "oklch(62% 0.0739 157.39)",
+          "oklch(74% 0.0739 157.39)",
+          "oklch(86% 0.0739 157.39)",
+          "oklch(95% 0.0739 157.39)"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Line",
+        "canonical": "#c9cec4",
+        "tonalRamp": [
+          "oklch(15% 0.0147 128.66)",
+          "oklch(26% 0.0147 128.66)",
+          "oklch(38% 0.0147 128.66)",
+          "oklch(50% 0.0147 128.66)",
+          "oklch(62% 0.0147 128.66)",
+          "oklch(74% 0.0147 128.66)",
+          "oklch(86% 0.0147 128.66)",
+          "oklch(95% 0.0147 128.66)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Bricolage hero",
+        "purpose": "Large two-line identity statement."
+      },
+      "body": {
+        "displayName": "Source Sans reading text",
+        "purpose": "Project details, recognition and contact."
+      }
+    },
+    "shadows": [
+      {
+        "name": "mobile-navigation",
+        "value": "0 18px 50px rgb(38 51 47 / .15)",
+        "purpose": "Separates the mobile navigation panel."
+      },
+      {
+        "name": "film-controls",
+        "value": "0 5px 24px rgb(38 51 47 / .10)",
+        "purpose": "Keeps video controls distinct from imagery."
+      }
+    ],
+    "motion": [
+      {
+        "name": "hero-display",
+        "value": "900ms power3.out; 100ms stagger",
+        "purpose": "Visible-from-default GSAP headline entrance."
+      },
+      {
+        "name": "hero-support",
+        "value": "600ms power3.out; 80ms stagger",
+        "purpose": "Supporting hero content."
+      },
+      {
+        "name": "film-opacity",
+        "value": "350ms ease",
+        "purpose": "Video/poster handoff."
+      },
+      {
+        "name": "controls",
+        "value": "180ms ease",
+        "purpose": "Hover and press state transitions."
+      },
+      {
+        "name": "project-image",
+        "value": "550ms cubic-bezier(.2,.65,.2,1)",
+        "purpose": "1.025 image hover scale; disabled for reduced motion."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "wide",
+        "value": "1600px"
+      },
+      {
+        "name": "compact-desktop",
+        "value": "1150px"
+      },
+      {
+        "name": "stacked-mobile",
+        "value": "800px"
+      },
+      {
+        "name": "narrow",
+        "value": "520px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary action",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The main work or retry action, with a small tactile press.",
+      "html": "<button class=\"ds-primary\">Explore my work</button>",
+      "css": ".ds-primary{font-family:var(--body,Source,Arial,sans-serif);font-size:15px;font-weight:600;min-height:52px;display:inline-flex;align-items:center;justify-content:center;gap:20px;padding:13px 23px;border-radius:4px;cursor:pointer;transition:background .18s,transform .18s,color .18s;background:var(--accent,#a33e2b);color:var(--ground,#f4f1e9);border:0}.ds-primary:hover{background:#823121}.ds-primary:active{transform:translateY(1px)}.ds-primary:focus-visible{outline:3px solid var(--accent,#a33e2b);outline-offset:5px}"
+    },
+    {
+      "name": "Outlined action",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Secondary disclosure and retry actions.",
+      "html": "<button class=\"ds-outline\">Show all projects</button>",
+      "css": ".ds-outline{font-family:var(--body,Source,Arial,sans-serif);font-size:15px;font-weight:600;min-height:52px;display:inline-flex;align-items:center;justify-content:center;gap:20px;padding:13px 23px;border-radius:4px;cursor:pointer;transition:background .18s,transform .18s,color .18s;border:1px solid var(--ink,#26332f);background:transparent;color:var(--ink,#26332f)}.ds-outline:hover{background:var(--ink,#26332f);color:var(--ground,#f4f1e9)}.ds-outline:active{transform:translateY(1px)}.ds-outline:focus-visible{outline:3px solid var(--accent,#a33e2b);outline-offset:5px}"
+    },
+    {
+      "name": "Text action",
+      "kind": "button",
+      "refersTo": "button-text",
+      "description": "A quiet companion to the primary action.",
+      "html": "<a class=\"ds-text\" href=\"#about\">About</a>",
+      "css": ".ds-text{font-family:var(--body,Source,Arial,sans-serif);font-size:15px;font-weight:600;min-height:52px;display:inline-flex;align-items:center;justify-content:center;gap:20px;padding:13px 23px;border-radius:4px;cursor:pointer;transition:background .18s,transform .18s,color .18s;padding-inline:3px;background:transparent;color:var(--ink,#26332f);text-decoration:none}.ds-text:hover{color:var(--accent,#a33e2b)}.ds-text:active{transform:translateY(1px)}.ds-text:focus-visible{outline:3px solid var(--accent,#a33e2b);outline-offset:5px}"
+    },
+    {
+      "name": "Desktop navigation",
+      "kind": "nav",
+      "refersTo": "navigation",
+      "description": "Thin bordered pill with location-aware accent.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Main navigation\"><a href=\"#work\" aria-current=\"location\">Work</a><a href=\"#about\">About</a><a href=\"#skills\">Expertise</a></nav>",
+      "css": ".ds-nav{display:inline-flex;gap:28px;padding:5px 24px;border:1px solid var(--line,#c9cec4);border-radius:50px;font-family:var(--body,Source,Arial,sans-serif)}.ds-nav a{display:flex;align-items:center;min-height:44px;min-width:44px;font-size:14px;color:var(--ink,#26332f);text-decoration:none;transition:color .18s}.ds-nav a:hover,.ds-nav a[aria-current=\"location\"]{color:var(--accent,#a33e2b)}.ds-nav a:focus-visible{outline:3px solid var(--accent,#a33e2b);outline-offset:5px}"
+    },
+    {
+      "name": "Project filter",
+      "kind": "chip",
+      "refersTo": "filter",
+      "description": "A compact toggle; selected state uses ink and paper.",
+      "html": "<button class=\"ds-filter\" aria-pressed=\"true\">All work</button><button class=\"ds-filter\" aria-pressed=\"false\">AI &amp; ML</button>",
+      "css": ".ds-filter{font-family:var(--body,Source,Arial,sans-serif);color:var(--ink,#26332f);padding:9px 17px;min-height:44px;border:1px solid var(--line,#c9cec4);border-radius:50px;background:transparent;font-size:14px;cursor:pointer;transition:background .18s,color .18s,border-color .18s}.ds-filter[aria-pressed=\"true\"]{background:var(--ink,#26332f);color:var(--ground,#f4f1e9);border-color:var(--ink,#26332f)}.ds-filter:hover:not([aria-pressed=\"true\"]){border-color:var(--muted,#56615b)}.ds-filter:focus-visible{outline:3px solid var(--accent,#a33e2b);outline-offset:5px}"
+    },
+    {
+      "name": "Film control",
+      "kind": "custom",
+      "refersTo": "film-control",
+      "description": "The visible play, pause, skip and replay treatment.",
+      "html": "<button class=\"ds-film\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"m9 5 11 7-11 7Z\"/></svg><span>Play introduction</span></button>",
+      "css": ".ds-film{display:inline-flex;gap:8px;align-items:center;justify-content:center;min-height:44px;padding:9px 13px;border:0;background:transparent;color:var(--ink,#26332f);border-radius:40px;font-family:var(--body,Source,Arial,sans-serif);font-size:13px;line-height:1.2;cursor:pointer}.ds-film:hover{background:var(--surface,#e8e4da)}.ds-film svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.55;stroke-linecap:round;stroke-linejoin:round}.ds-film:focus-visible{outline:3px solid var(--accent,#a33e2b);outline-offset:5px}"
+    },
+    {
+      "name": "Compact project row",
+      "kind": "custom",
+      "description": "Additional work remains an editorial row rather than a nested card.",
+      "html": "<article class=\"ds-project\"><h3>GhostIQ</h3><p>An AI-powered project exploring behavioural patterns and ghosting scores with a React interface and Gemini integration.</p><span>Earlier work</span></article>",
+      "css": ".ds-project{display:grid;grid-template-columns:1fr 1.3fr;gap:14px 60px;border-bottom:1px solid var(--line,#c9cec4);padding-bottom:35px;color:var(--ink,#26332f);font-family:var(--body,Source,Arial,sans-serif)}.ds-project h3{grid-column:1;margin:0;font-family:var(--display,Bricolage,Arial,sans-serif);font-size:28px;font-weight:500;letter-spacing:-.03em;line-height:1.05}.ds-project p{grid-column:2;grid-row:1 / span 2;margin:0;color:var(--muted,#56615b);font-size:16px;line-height:1.6}.ds-project span{justify-self:start;grid-column:1;background:var(--surface,#e8e4da);padding:5px 9px;border-radius:3px;font-size:12px}"
+    },
+    {
+      "name": "Credential row",
+      "kind": "custom",
+      "description": "Record title, issuer, category and supplied date remain distinct.",
+      "html": "<article class=\"ds-credential\"><div><span>Certification</span><h3>Oracle AI Database SQL Certified Associate</h3></div><p>Oracle University</p><time datetime=\"2026-08-18\">Aug 18, 2026</time></article>",
+      "css": ".ds-credential{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) auto;gap:30px;padding:23px 0;border-bottom:1px solid #c4cabe;align-items:center;color:var(--ink,#26332f);font-family:var(--body,Source,Arial,sans-serif)}.ds-credential span{font-size:11px;letter-spacing:.02em;display:block;margin-bottom:5px;color:var(--accent,#a33e2b);font-weight:600}.ds-credential h3{margin:0;font-size:17px;line-height:1.4;font-weight:600}.ds-credential p{font-size:14px;color:var(--muted,#56615b);margin:0}.ds-credential time{font-size:13px;color:var(--muted,#56615b);white-space:nowrap;min-width:93px;text-align:right;font-variant-numeric:tabular-nums}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The builder arrives; the work stays inspectable.",
+    "overview": "Assured, tactile and cinematic. Warm paper and limestone surfaces frame one original avatar film, followed by an editorial exhibition of actual projects and clearly labelled credentials. Large human display type carries the identity; readable descriptions and source links carry the proof.\n\nThis document records the implemented site, not every optional effect in the original master brief. The site has a single entrance film and native scrolling. It does not implement video chapters, Lenis, ScrollTrigger, Three.js, a dashboard, authentication or a chatbot.",
+    "keyCharacteristics": [
+      "Warm light surfaces with one fired-clay accent.",
+      "An immediately usable hero with a skippable original avatar film.",
+      "Alternating project/image rows instead of a uniform card grid.",
+      "Visible distinctions between screenshots, concept art, demos and prototypes."
+    ],
+    "rules": [
+      {
+        "name": "The One Accent Rule",
+        "body": "Use fired clay for emphasis; project imagery may retain its own original colours, but page chrome does not borrow those colours.",
+        "section": "colors"
+      }
+    ],
+    "dos": [
+      "Keep name, work and contact available before media playback completes.",
+      "Preserve the supplied artwork and distinguish concept imagery from application screenshots.",
+      "Use original project and credential boundaries instead of invented operational claims.",
+      "Keep touch layouts stacked and the full avatar movement visible."
+    ],
+    "donts": [
+      "Turn the entrance into a loading gate or force replay on every visit.",
+      "Add an unneeded scroll engine, WebGL scene or generated video chapter.",
+      "Replace paper surfaces with dark neon, pervasive glass or decorative glowing blobs.",
+      "Hide content when motion, autoplay, storage or media loading is unavailable."
+    ]
+  }
+}
