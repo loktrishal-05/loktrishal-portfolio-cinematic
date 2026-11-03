@@ -2,6 +2,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Lenis from 'lenis';
 import { motionPolicy } from './motion.js';
+import { renderDashboard } from './dashboard.js';
 
 gsap.registerPlugin(ScrollTrigger);
 const $ = selector => document.querySelector(selector);
@@ -51,12 +52,14 @@ function renderWork(copy) {
     image.addEventListener('error', () => imageBox.replaceChildren(element('p', 'empty-state', copy.labels.projectImageFallback)), { once: true });
     imageBox.append(image); figure.append(imageBox, element('figcaption', '', project.imageCaption));
     const content = element('div', 'project-copy');
-    const meta = element('div', 'project-meta'); meta.append(element('span', '', `${String(index + 1).padStart(2, '0')} / ${project.category}`), element('span', '', project.year));
+    const meta = element('div', 'project-meta'); meta.append(element('span', '', `${String(index + 1).padStart(2, '0')} / ${project.category}`), element('span', '', project.event ? `${project.year} · ${project.event}` : project.year));
     const tech = element('ul', 'project-tech'); tech.setAttribute('aria-label', copy.labels.technology);
     tech.append(...project.tech.map(item => element('li', '', item)));
     const points = element('ul', 'project-points');
     points.append(...(project.points || [project.description]).map(text => element('li', '', text)));
-    content.append(meta, element('h3', '', project.shortTitle || project.title), points, element('span', 'project-status', project.status), tech, links(project, copy));
+    const outcome = project.outcome ? element('p', 'project-outcome') : null;
+    if (outcome) outcome.append(element('strong', '', `${copy.labels.outcome}: `), project.outcome);
+    content.append(meta, element('h3', '', project.shortTitle || project.title), points, ...(outcome ? [outcome] : []), element('span', 'project-status', project.status), tech, links(project, copy));
     article.append(figure, content); return article;
   }));
   list.setAttribute('aria-busy', 'false');
@@ -75,24 +78,45 @@ function renderWork(copy) {
     const button = element('button', 'filter', group || copy.labels.allFilter); button.type = 'button'; button.dataset.filter = group;
     button.addEventListener('click', () => { category = group; drawArchive(); }); return button;
   }));
-  $('#show-projects').addEventListener('click', () => {
+  $('#show-projects').onclick = () => {
     const open = $('#archive-content').hidden;
     $('#archive-content').hidden = !open;
     $('#show-projects').setAttribute('aria-expanded', String(open));
     $('#show-projects span').textContent = open ? copy.labels.showLess : copy.labels.showMore;
     ScrollTrigger.refresh();
-  });
+  };
   drawArchive();
+}
+function renderAwards(copy) {
+  const formatter = new Intl.DateTimeFormat('en', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' });
+  $('#award-list').replaceChildren(...copy.credentials.filter(item => item.category === 'Award').map(item => {
+    const card = element('a', 'award glass-card'); card.href = item.asset; card.target = '_blank'; card.rel = 'noopener noreferrer';
+    card.append(element('h3', '', item.title), element('p', '', item.issuer));
+    if (item.date) { const time = element('time', '', formatter.format(new Date(`${item.date}T00:00:00Z`))); time.dateTime = item.date; card.append(time); }
+    card.append(element('span', 'certificate-action', copy.labels.viewCertificate)); return card;
+  }));
+}
+function renderInternships(copy) {
+  const formatter = new Intl.DateTimeFormat('en', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' });
+  const day = iso => formatter.format(new Date(`${iso}T00:00:00Z`));
+  $('#internship-list').replaceChildren(...copy.internships.map(item => {
+    const card = element('a', 'award internship glass-card'); card.href = item.asset; card.target = '_blank'; card.rel = 'noopener noreferrer';
+    card.setAttribute('aria-label', `${copy.labels.viewCertificate}: ${item.role}, ${item.organisation}`);
+    const thumb = element('img'); thumb.src = item.asset; thumb.alt = item.alt; thumb.width = item.width; thumb.height = item.height; thumb.loading = 'lazy'; thumb.decoding = 'async';
+    const time = element('time', '', `${day(item.start)} – ${day(item.end)}`); time.dateTime = `${item.start}/${item.end}`;
+    card.append(thumb, element('h3', '', item.role), element('p', '', `${item.organisation}, ${item.location}`), time, element('p', '', item.detail), element('span', 'certificate-action', copy.labels.viewCertificate));
+    return card;
+  }));
 }
 function renderDetails(copy) {
   const points = element('ul', 'about-points');
   points.append(...copy.about.points.map(text => element('li', '', text)));
-  $('#about-paragraphs').replaceChildren(points);
+  $('#about-paragraphs').replaceChildren(element('p', '', copy.about.objective), points);
   $('#terminal-body').replaceChildren(...copy.hero.terminal.map(([label, value]) => {
     const line = element('div', 'terminal-line'); line.append(element('span', '', label), element('strong', '', value)); return line;
   }));
   const education = copy.profile.education;
-  $('#education').replaceChildren(element('strong', '', education.degree), element('span', '', education.institution), element('span', '', education.graduation));
+  $('#education').replaceChildren(element('strong', '', education.degree), element('span', '', education.institution), element('span', '', `${education.graduation} · ${education.cgpa}`));
   $('#skill-list').replaceChildren(...copy.skills.map(skill => {
     const article = element('details', 'skill glass-card');
     const summary = element('summary'); summary.append(element('span', '', skill.name), element('span', 'skill-count', String(skill.items.length).padStart(2, '0')), element('span', 'skill-plus', '+'));
@@ -234,21 +258,26 @@ async function setupExperience(copy) {
   window.__portfolio = { get scene() { return state.dataset.sceneState; }, get sculpture() { return sculpture; }, scroll: ScrollTrigger };
 }
 async function boot() {
+  let copy;
   const controller = new AbortController(); const timer = setTimeout(() => controller.abort(), 12000);
   try {
     const response = await fetch('/data/copy.en.json', { signal: controller.signal });
     if (!response.ok) throw new Error('Content unavailable');
-    const copy = await response.json();
+    copy = await response.json();
     if (!copy.profile || !Array.isArray(copy.projects) || !Array.isArray(copy.credentials)) throw new Error('Invalid content');
-    applyCopy(copy); renderWork(copy); renderDetails(copy);
-    const cleanNavigation = navigation(copy);
-    window.addEventListener('pagehide', event => { if (!event.persisted) cleanNavigation(); });
+    applyCopy(copy); renderWork(copy); renderAwards(copy); renderInternships(copy); renderDashboard(copy, element, $('#dashboard-root')); renderDetails(copy);
     $('#content-error').hidden = true;
-    await setupExperience(copy);
-    document.body.dataset.ready = 'true';
   } catch {
     $('#content-error').hidden = false; $('#project-list').setAttribute('aria-busy', 'false');
+    return;
   } finally { clearTimeout(timer); }
+  // Menu and motion failures must not report the already-rendered content as unloaded.
+  try {
+    const cleanNavigation = navigation(copy);
+    window.addEventListener('pagehide', event => { if (!event.persisted) cleanNavigation(); });
+    await setupExperience(copy);
+  } catch (error) { console.error('Motion setup failed; content is still available.', error); }
+  document.body.dataset.ready = 'true';
 }
 $('#content-retry').addEventListener('click', boot);
 boot();

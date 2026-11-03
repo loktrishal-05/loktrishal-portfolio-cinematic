@@ -14,6 +14,7 @@ for (const source of ['index.html', 'styles.css', 'refinements.css']) {
   await cp(resolve(root, source), resolve(output, source));
 }
 await cp(resolve(root, 'public'), output, { recursive: true });
+await cp(resolve(root, 'Resume.pdf'), resolve(output, 'Resume.pdf')).catch(error => { if (error.code !== 'ENOENT') throw error; });
 await cp(resolve(root, 'data'), resolve(output, 'data'), { recursive: true });
 await build({ entryPoints: [resolve(root, 'app.js')], outdir: resolve(output, 'assets'), bundle: true, splitting: true, format: 'esm', minify: true, sourcemap: false, target: 'es2022', chunkNames: '[name]-[hash]' });
 console.log('Built static portfolio in dist/');

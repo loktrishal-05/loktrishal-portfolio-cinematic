@@ -33,7 +33,7 @@ function safeExternalLink(value) {
 test('the complete owner-supplied project and credential collection is preserved', () => {
   assert.equal(copy.projects.length, 13);
   assert.equal(copy.credentials.length, 16);
-  assert.equal(copy.skills.length, 6);
+  assert.equal(copy.skills.length, 7);
   assert.equal(copy.projects.filter(project => project.featured).length, 6);
   assert.equal(new Set(copy.projects.map(project => project.id)).size, copy.projects.length);
   assert.equal(new Set(copy.credentials.map(credential => credential.id)).size, copy.credentials.length);
@@ -117,4 +117,13 @@ test('the rendered sculpture fallback is web-readable without loading any video'
       assert.equal(bytes.toString('ascii', 8, 12), 'WEBP');
     }
   }
+});
+
+test('internships have verified certificate images and the 2 internships claim is stated', async () => {
+  assert.equal(copy.internships.length, 2);
+  for (const item of copy.internships) {
+    assert.ok(item.role && item.organisation && item.location && item.start <= item.end && item.alt);
+    assert.ok((await stat(resolve(root, 'public', item.asset.slice(1)))).size > 0);
+  }
+  assert.match(copy.hero.description, /2 internships/);
 });
