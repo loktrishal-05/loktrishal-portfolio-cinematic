@@ -118,3 +118,12 @@ test('the rendered sculpture fallback is web-readable without loading any video'
     }
   }
 });
+
+test('internships have verified certificate images and the 2 internships claim is stated', async () => {
+  assert.equal(copy.internships.length, 2);
+  for (const item of copy.internships) {
+    assert.ok(item.role && item.organisation && item.location && item.start <= item.end && item.alt);
+    assert.ok((await stat(resolve(root, 'public', item.asset.slice(1)))).size > 0);
+  }
+  assert.match(copy.hero.description, /2 internships/);
+});

@@ -40,7 +40,7 @@
     "titleLines": [
       "LOKTRISHAL"
     ],
-    "description": "AI, data science and full-stack engineering. Based in Chennai. Open to internships and collaboration.",
+    "description": "AI, data science and full-stack engineering. Based in Chennai, with 2 internships completed. Open to internships and collaboration.",
     "primaryCta": "Discover the work",
     "secondaryCta": "Let's talk",
     "sceneBeats": [
@@ -85,6 +85,34 @@
       ]
     ]
   },
+  "internships": [
+    {
+      "id": "virtual-tech-services",
+      "role": "Data Science Intern",
+      "organisation": "Virtual Tech Services",
+      "location": "Chennai (corporate office)",
+      "start": "2025-06-01",
+      "end": "2025-06-30",
+      "detail": "Project: Diabetes Prediction using Machine Learning",
+      "asset": "/certificates/virtual-tech-services-internship-certificate.png",
+      "alt": "Virtual Tech Services internship certificate for Loktrishal K, Data Science Internship, 1 to 30 June 2025, project Diabetes Prediction using Machine Learning",
+      "width": 635,
+      "height": 803
+    },
+    {
+      "id": "chennai-port-authority",
+      "role": "Vocational Trainee (In-plant Training)",
+      "organisation": "Chennai Port Authority",
+      "location": "Chennai",
+      "start": "2026-06-15",
+      "end": "2026-06-29",
+      "detail": "Non-stipendiary. Electronic Data Processing section, Mechanical & Electrical Engineering Department. Certificate No. 651",
+      "asset": "/certificates/chennai-port-authority-inplant-training-certificate.png",
+      "alt": "Chennai Port Authority vocational in-plant training certificate No. 651 for Loktrishal K, 15 to 29 June 2026",
+      "width": 1240,
+      "height": 1744
+    }
+  ],
   "about": {
     "heading": "Curiosity, made useful.",
     "statement": "Good technology makes the complicated feel possible.",
@@ -97,9 +125,10 @@
       "B.Tech in Artificial Intelligence & Data Science, R.M.K. College of Engineering & Technology.",
       "Building AI agents, machine-learning systems and full-stack applications.",
       "Exploring healthcare, agriculture, space science and document intelligence.",
-      "Ambassador, Zoho Catalyst program."
+      "Ambassador, Zoho Catalyst program.",
+      "2 internships: data science (Virtual Tech Services) and in-plant training (Chennai Port Authority)."
     ],
-    "objective": "B.Tech AI & Data Science student (CGPA 8.0) who builds agent workflows, ML pipelines and the web apps around them. Recent work: farm agents behind a safety gate, a seven-language healthcare navigator and an exoplanet classifier that runs in the browser. Looking for an AI or full-stack internship."
+    "objective": "B.Tech AI & Data Science student (CGPA 8.0) who builds agent workflows, ML pipelines and the web apps around them. Recent work: farm agents behind a safety gate, a seven-language healthcare navigator and an exoplanet classifier that runs in the browser. 2 internships completed (data science, in-plant training). Looking for an AI or full-stack internship."
   },
   "skills": [
     {
@@ -770,6 +799,8 @@
     "aboutPointLabel": "At a glance",
     "terminalTitle": "loktrishal.dev / profile",
     "viewCertificate": "View certificate",
+    "internshipsHeading": "Internships",
+    "internshipsDescription": "2 internships, each with a certificate you can open.",
     "previousCertificates": "Previous certificates",
     "nextCertificates": "Next certificates",
     "certificateBrowse": "16 credentials / swipe to explore",

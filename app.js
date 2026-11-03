@@ -96,6 +96,18 @@ function renderAwards(copy) {
     card.append(element('span', 'certificate-action', copy.labels.viewCertificate)); return card;
   }));
 }
+function renderInternships(copy) {
+  const formatter = new Intl.DateTimeFormat('en', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' });
+  const day = iso => formatter.format(new Date(`${iso}T00:00:00Z`));
+  $('#internship-list').replaceChildren(...copy.internships.map(item => {
+    const card = element('a', 'award internship glass-card'); card.href = item.asset; card.target = '_blank'; card.rel = 'noopener noreferrer';
+    card.setAttribute('aria-label', `${copy.labels.viewCertificate}: ${item.role}, ${item.organisation}`);
+    const thumb = element('img'); thumb.src = item.asset; thumb.alt = item.alt; thumb.width = item.width; thumb.height = item.height; thumb.loading = 'lazy'; thumb.decoding = 'async';
+    const time = element('time', '', `${day(item.start)} – ${day(item.end)}`); time.dateTime = `${item.start}/${item.end}`;
+    card.append(thumb, element('h3', '', item.role), element('p', '', `${item.organisation}, ${item.location}`), time, element('p', '', item.detail), element('span', 'certificate-action', copy.labels.viewCertificate));
+    return card;
+  }));
+}
 function renderDetails(copy) {
   const points = element('ul', 'about-points');
   points.append(...copy.about.points.map(text => element('li', '', text)));
@@ -253,7 +265,7 @@ async function boot() {
     if (!response.ok) throw new Error('Content unavailable');
     copy = await response.json();
     if (!copy.profile || !Array.isArray(copy.projects) || !Array.isArray(copy.credentials)) throw new Error('Invalid content');
-    applyCopy(copy); renderWork(copy); renderAwards(copy); renderDashboard(copy, element, $('#dashboard-root')); renderDetails(copy);
+    applyCopy(copy); renderWork(copy); renderAwards(copy); renderInternships(copy); renderDashboard(copy, element, $('#dashboard-root')); renderDetails(copy);
     $('#content-error').hidden = true;
   } catch {
     $('#content-error').hidden = false; $('#project-list').setAttribute('aria-busy', 'false');
