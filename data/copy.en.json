@@ -208,7 +208,8 @@
       "points": [
         "Seven-language screening navigator with consent, referrals and a counsellor console.",
         "Chat/voice guidance and traceable audit trail; all people and results are synthetic."
-      ]
+      ],
+      "outcome": "Seven languages; 585 tests passing."
     },
     {
       "id": "solarda",
@@ -238,7 +239,8 @@
       "points": [
         "Farm agents for irrigation, disease vision and sensor forecasting.",
         "Human approval and safety checks; hosted UI uses replayed data and needs a backend for agent features."
-      ]
+      ],
+      "outcome": "Disease model: 98.2% on PlantVillage lab images, 61.0% on PlantDoc field photos."
     },
     {
       "id": "exodetect",
@@ -267,7 +269,8 @@
       "points": [
         "Kepler light-curve features and calibrated XGBoost classification.",
         "Browser ONNX inference; heavy light-curve analysis remains in Python."
-      ]
+      ],
+      "outcome": "0.913 test AUC-PR without depth and SNR features, on the v1 sample of 400 stars."
     },
     {
       "id": "legal",
@@ -296,15 +299,16 @@
       "points": [
         "Document intelligence for legal research and analysis.",
         "In development; inspect the source for current capabilities."
-      ]
+      ],
+      "outcome": "126 / 126 scope, session and API regression checks passed; 32 / 32 native extraction checks passed."
     },
     {
       "id": "nwis",
       "title": "eRTMAC-NWIS — Nearby Wells Intelligence",
       "shortTitle": "Nearby wells",
-      "category": "Geospatial intelligence",
+      "category": "Drilling advisory",
       "year": "2026",
-      "description": "Nearby-well search, formation correlation and evidence-grounded drilling advisories using PostGIS, local retrieval and LangGraph. Built for SIH 2026 problem SIH26121 with synthetic data and replayed telemetry; advisory-only, with an engineer making decisions.",
+      "description": "Drilling-advisory prototype: nearby-well search, formation correlation and evidence-grounded advisories using PostGIS, local retrieval and LangGraph. Built for SIH 2026 problem SIH26121 on a synthetic demo dataset (not Oil India data) with replayed telemetry; advisory-only, with an engineer making decisions.",
       "tech": [
         "Python",
         "FastAPI",
@@ -324,9 +328,10 @@
       "imageWidth": 1440,
       "imageHeight": 480,
       "points": [
-        "Geospatial groundwater intelligence and advisory exploration.",
-        "Synthetic-data prototype; not an operational decision system."
-      ]
+        "Drilling-advisory prototype: finds nearby offset wells and retrieves evidence-grounded risk advisories.",
+        "Runs on synthetic data with replayed telemetry; risk scores are uncalibrated and it is advisory-only, not an operational decision system."
+      ],
+      "outcome": "200 backend tests passed and 8 / 8 held-out benchmark cases, all on synthetic data."
     },
     {
       "id": "edunova",
@@ -356,7 +361,8 @@
       "points": [
         "Biology, chemistry and physics worlds with video quests and quizzes.",
         "Interactive Three.js/R3F scenes, plus parent and teacher views."
-      ]
+      ],
+      "outcome": "Three worlds with 31, 17 and 15 video checkpoints."
     },
     {
       "id": "sri-ambal",
@@ -738,11 +744,15 @@
     "previousCertificates": "Previous certificates",
     "nextCertificates": "Next certificates",
     "certificateBrowse": "16 credentials / swipe to explore",
-    "terminalPrompt": "> building what comes next"
+    "terminalPrompt": "> building what comes next",
+    "downloadResume": "Download Resume",
+    "awardsHeading": "Awards",
+    "awardsDescription": "Recent competition wins, from the credentials below.",
+    "outcome": "Outcome"
   },
   "meta": {
-    "title": "Loktrishal K - AI, Data Science & Full-stack Developer",
-    "description": "Explore Loktrishal K's projects in AI, machine learning and full-stack development, plus certifications and hackathon recognition. Based in Chennai, India.",
+    "title": "AI & Full Stack Developer | B.Tech AI & Data Science",
+    "description": "Loktrishal K — AI & Full Stack Developer and B.Tech AI & Data Science student in Chennai. Projects in AI, machine learning and full-stack development, plus certifications and hackathon awards.",
     "language": "en",
     "contentSnapshot": "2026-11-02"
   }

@@ -37,3 +37,5 @@
 
 @media(min-width:801px) and (max-height:850px){.work-heading h2{display:flex;gap:.17em}.work-heading h2 br{display:none}.work-heading{margin-bottom:22px}.project-points{gap:4px}.project-status{margin-top:6px}.gallery-footer{margin-top:12px}}
 .project-image.glass-card::before{z-index:2;background:radial-gradient(240px circle at var(--pointer-x) var(--pointer-y),rgb(145 184 255/.3),transparent 80%)}
+
+.awards{padding-block:48px 24px}.awards-head{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-bottom:20px}.awards-head h2{font-size:clamp(30px,3vw,46px)}.award-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}.award{display:flex;flex-direction:column;gap:8px;padding:20px}.award h3{font:600 17px/1.35 var(--body);letter-spacing:0}.award p,.award time{font-size:13px;color:var(--muted)}.project-outcome{font-size:14px;margin-top:10px;max-width:68ch}.project-outcome strong{color:var(--accent);font-weight:600}
