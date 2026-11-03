@@ -16,7 +16,7 @@ npm run dev
 Preview http://127.0.0.1:8770 . In another terminal run `npm run qa`. Browser checks use installed Chrome through Playwright; ignored results/screenshots go to artifacts/v2.
 
 ## Content
-English UI copy, 13 projects, six skill groups and 16 recognition records live in data/copy.en.json. See docs/CONTENT.md for provenance. Project imagery retains captions; private photos and certificate originals are not published.
+English UI copy, 13 projects, seven skill groups and 16 recognition records live in data/copy.en.json. See docs/CONTENT.md for provenance. Project imagery retains captions; private photos and certificate originals are not published.
 
 The fallback WebP is rendered from our actual procedural sculpture. Three.js, GSAP and Lenis are bundled locally. Reduced-motion/Save-Data views skip the scene download.
 

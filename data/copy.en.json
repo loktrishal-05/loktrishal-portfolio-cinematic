@@ -10,7 +10,8 @@
     "education": {
       "degree": "B.Tech - Artificial Intelligence & Data Science",
       "institution": "R.M.K. College of Engineering & Technology",
-      "graduation": "Expected January 2028"
+      "graduation": "Expected January 2028",
+      "cgpa": "CGPA 8.0"
     }
   },
   "navigation": [
@@ -92,9 +93,22 @@
       "B.Tech in Artificial Intelligence & Data Science, R.M.K. College of Engineering & Technology.",
       "Building AI agents, machine-learning systems and full-stack applications.",
       "Exploring healthcare, agriculture, space science and document intelligence."
-    ]
+    ],
+    "objective": "B.Tech AI & Data Science student (CGPA 8.0) who builds agent workflows, ML pipelines and the web apps around them. Recent work: farm agents behind a safety gate, a seven-language healthcare navigator and an exoplanet classifier that runs in the browser. Looking for an AI or full-stack internship."
   },
   "skills": [
+    {
+      "name": "Languages",
+      "description": "Languages I write day to day.",
+      "items": [
+        "Python",
+        "TypeScript",
+        "JavaScript",
+        "Java",
+        "C++",
+        "SQL"
+      ]
+    },
     {
       "name": "Frontend",
       "description": "Interactive and accessible interfaces for multilingual healthcare, science learning and data dashboards.",
@@ -206,10 +220,12 @@
       "imageWidth": 1440,
       "imageHeight": 480,
       "points": [
-        "Seven-language screening navigator with consent, referrals and a counsellor console.",
-        "Chat/voice guidance and traceable audit trail; all people and results are synthetic."
+        "Explains screening results in plain language in seven languages (English, Arabic, Hindi, Tamil, Telugu, Kannada, Malayalam), with right-to-left layout for Arabic.",
+        "A deterministic genetics engine produces every number. The couple view opens only after both partners agree; higher-risk cases also need a counsellor.",
+        "Tamper-evident audit log. Fictional demo: all people and results are synthetic."
       ],
-      "outcome": "Seven languages; 585 tests passing."
+      "outcome": "Seven languages; 585 tests passing.",
+      "event": "Future Health Digital Innovation Challenge"
     },
     {
       "id": "solarda",
@@ -237,10 +253,13 @@
       "imageWidth": 1440,
       "imageHeight": 480,
       "points": [
-        "Farm agents for irrigation, disease vision and sensor forecasting.",
-        "Human approval and safety checks; hosted UI uses replayed data and needs a backend for agent features."
+        "LangGraph farm workflow where agents only propose actions: a deterministic TypeScript safety engine decides what runs, risky actions wait for a human, the gate fails closed if the API is down, and every action is logged.",
+        "Plant-disease classifier (EfficientNetV2-B0, ONNX) that abstains when unsure: 98.2% on PlantVillage, 61.0% on PlantDoc field photos, and 87% correct on the images it chooses to answer.",
+        "Crop and soil-water twin (Chennai 2021-23 weather) used about 19-32% less water than a rule-based controller at similar yield. Results come from replayed data and simulation, not live sensors.",
+        "Hosted UI uses replayed data and needs a backend for agent features."
       ],
-      "outcome": "Disease model: 98.2% on PlantVillage lab images, 61.0% on PlantDoc field photos."
+      "outcome": "Abstains on 60% of field photos and is 87% right when it answers.",
+      "event": "Agentic AI Hackathon 2026"
     },
     {
       "id": "exodetect",
@@ -267,10 +286,13 @@
       "imageWidth": 1440,
       "imageHeight": 480,
       "points": [
-        "Kepler light-curve features and calibrated XGBoost classification.",
+        "Pipeline from raw Kepler light curves (Savitzky-Golay detrending, BLS period search, 13 transit features) to a star-level 70/15/15 split, so one star never lands in two splits.",
+        "XGBoost with isotonic calibration, a threshold picked on validation only, and TreeSHAP explanations, exported to ONNX so the classifier runs in the browser.",
+        "On a 400-star sample, AUC-PR fell to 0.913 once depth and SNR features were removed; a harder benchmark is still pending.",
         "Browser ONNX inference; heavy light-curve analysis remains in Python."
       ],
-      "outcome": "0.913 test AUC-PR without depth and SNR features, on the v1 sample of 400 stars."
+      "outcome": "0.913 test AUC-PR without depth and SNR features, on the v1 sample of 400 stars.",
+      "event": "ISRO Bhartiya Antariksh Hackathon 2026"
     },
     {
       "id": "legal",
@@ -297,8 +319,8 @@
       "imageWidth": 1440,
       "imageHeight": 480,
       "points": [
-        "Document intelligence for legal research and analysis.",
-        "In development; inspect the source for current capabilities."
+        "Secure document intake (hashing, quarantine), TXT/DOCX/PDF extraction with page-level locators, and a resolver that returns exact stored quotes.",
+        "In development: contract and regulatory analysis are still planned. Intake and extraction live on the PR #13 branch until merged."
       ],
       "outcome": "126 / 126 scope, session and API regression checks passed; 32 / 32 native extraction checks passed."
     },
@@ -328,10 +350,12 @@
       "imageWidth": 1440,
       "imageHeight": 480,
       "points": [
-        "Drilling-advisory prototype: finds nearby offset wells and retrieves evidence-grounded risk advisories.",
-        "Runs on synthetic data with replayed telemetry; risk scores are uncalibrated and it is advisory-only, not an operational decision system."
+        "Drilling-advisory prototype: ranks offset wells by similarity instead of distance alone and ties each risk estimate to a source report and page.",
+        "A four-agent LangGraph flow answers with citations or says the evidence is insufficient; role-based access and a hash-chained audit log.",
+        "Runs on a synthetic 12-well dataset with replayed telemetry; risk scores are uncalibrated and it is advisory-only, not an operational decision system."
       ],
-      "outcome": "200 backend tests passed and 8 / 8 held-out benchmark cases, all on synthetic data."
+      "outcome": "200 backend tests passed and 8 / 8 held-out benchmark cases, all on synthetic data.",
+      "event": "SIH 2026 hackathon prototype"
     },
     {
       "id": "edunova",
@@ -359,8 +383,8 @@
       "imageWidth": 1440,
       "imageHeight": 480,
       "points": [
-        "Biology, chemistry and physics worlds with video quests and quizzes.",
-        "Interactive Three.js/R3F scenes, plus parent and teacher views."
+        "Three video-quest worlds (Biology, Chemistry, Physics) with quizzes, built with Next.js 15 and React Three Fiber.",
+        "Interactive 3D scenes plus parent and teacher views. Learning demo."
       ],
       "outcome": "Three worlds with 31, 17 and 15 video checkpoints."
     },

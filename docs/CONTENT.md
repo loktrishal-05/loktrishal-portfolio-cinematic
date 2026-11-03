@@ -1,6 +1,6 @@
 # Current content and image provenance
 
-13 projects, six skill domains and 16 distinct credentials remain in data/copy.en.json. Course completion, participation, appreciation and awards retain their original distinctions. Undated evidence remains undated. Synthetic-data and prototype limitations remain explicit. Skills are regrouped into Frontend, Backend, Databases, AI & machine learning, Data & analytics and DevOps & tools; language skills are retained in their relevant domains.
+13 projects, seven skill domains and 16 distinct credentials remain in data/copy.en.json. Course completion, participation, appreciation and awards retain their original distinctions. Undated evidence remains undated. Synthetic-data and prototype limitations remain explicit. Skills are regrouped into Languages, Frontend, Backend, Databases, AI & machine learning, Data & analytics and DevOps & tools; the resume's language list is its own group. Project bullets, the career objective and CGPA come from the owner's Resume.pdf and the project READMEs.
 
 ## Project art
 All six featured images are existing owner-supplied concept art from the public profile repository, not invented application screenshots. The user explicitly requested these in place of screenshots. Sources follow:

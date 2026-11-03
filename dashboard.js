@@ -32,7 +32,7 @@ export function renderDashboard(copy, element, root) {
   function draw() {
     const projects = copy.projects.filter(p => !state.domain || p.filterGroup === state.domain);
     const credentials = copy.credentials.filter(c => !state.credential || c.category === state.credential);
-    const skillTotal = copy.skills.reduce((n, s) => n + s.items.length, 0);
+    const skillTotal = new Set(copy.skills.flatMap(s => s.items)).size;
     const kpis = element('div', 'dash-kpis');
     for (const [label, value] of [[copy.labels.dashProjects, projects.length], [copy.labels.dashCredentials, credentials.length], [copy.labels.dashAwards, credentials.filter(c => c.category === 'Award').length], [copy.labels.dashSkills, skillTotal]]) {
       const tile = element('div', 'dash-kpi glass-card'); tile.append(element('strong', '', String(value)), element('span', '', label)); kpis.append(tile);

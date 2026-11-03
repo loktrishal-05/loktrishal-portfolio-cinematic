@@ -33,7 +33,7 @@ function safeExternalLink(value) {
 test('the complete owner-supplied project and credential collection is preserved', () => {
   assert.equal(copy.projects.length, 13);
   assert.equal(copy.credentials.length, 16);
-  assert.equal(copy.skills.length, 6);
+  assert.equal(copy.skills.length, 7);
   assert.equal(copy.projects.filter(project => project.featured).length, 6);
   assert.equal(new Set(copy.projects.map(project => project.id)).size, copy.projects.length);
   assert.equal(new Set(copy.credentials.map(credential => credential.id)).size, copy.credentials.length);

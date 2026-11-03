@@ -52,7 +52,7 @@ function renderWork(copy) {
     image.addEventListener('error', () => imageBox.replaceChildren(element('p', 'empty-state', copy.labels.projectImageFallback)), { once: true });
     imageBox.append(image); figure.append(imageBox, element('figcaption', '', project.imageCaption));
     const content = element('div', 'project-copy');
-    const meta = element('div', 'project-meta'); meta.append(element('span', '', `${String(index + 1).padStart(2, '0')} / ${project.category}`), element('span', '', project.year));
+    const meta = element('div', 'project-meta'); meta.append(element('span', '', `${String(index + 1).padStart(2, '0')} / ${project.category}`), element('span', '', project.event ? `${project.year} · ${project.event}` : project.year));
     const tech = element('ul', 'project-tech'); tech.setAttribute('aria-label', copy.labels.technology);
     tech.append(...project.tech.map(item => element('li', '', item)));
     const points = element('ul', 'project-points');
@@ -99,12 +99,12 @@ function renderAwards(copy) {
 function renderDetails(copy) {
   const points = element('ul', 'about-points');
   points.append(...copy.about.points.map(text => element('li', '', text)));
-  $('#about-paragraphs').replaceChildren(points);
+  $('#about-paragraphs').replaceChildren(element('p', '', copy.about.objective), points);
   $('#terminal-body').replaceChildren(...copy.hero.terminal.map(([label, value]) => {
     const line = element('div', 'terminal-line'); line.append(element('span', '', label), element('strong', '', value)); return line;
   }));
   const education = copy.profile.education;
-  $('#education').replaceChildren(element('strong', '', education.degree), element('span', '', education.institution), element('span', '', education.graduation));
+  $('#education').replaceChildren(element('strong', '', education.degree), element('span', '', education.institution), element('span', '', `${education.graduation} · ${education.cgpa}`));
   $('#skill-list').replaceChildren(...copy.skills.map(skill => {
     const article = element('details', 'skill glass-card');
     const summary = element('summary'); summary.append(element('span', '', skill.name), element('span', 'skill-count', String(skill.items.length).padStart(2, '0')), element('span', 'skill-plus', '+'));
