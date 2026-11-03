@@ -2,6 +2,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Lenis from 'lenis';
 import { motionPolicy } from './motion.js';
+import { renderDashboard } from './dashboard.js';
 
 gsap.registerPlugin(ScrollTrigger);
 const $ = selector => document.querySelector(selector);
@@ -252,7 +253,7 @@ async function boot() {
     if (!response.ok) throw new Error('Content unavailable');
     copy = await response.json();
     if (!copy.profile || !Array.isArray(copy.projects) || !Array.isArray(copy.credentials)) throw new Error('Invalid content');
-    applyCopy(copy); renderWork(copy); renderAwards(copy); renderDetails(copy);
+    applyCopy(copy); renderWork(copy); renderAwards(copy); renderDashboard(copy, element, $('#dashboard-root')); renderDetails(copy);
     $('#content-error').hidden = true;
   } catch {
     $('#content-error').hidden = false; $('#project-list').setAttribute('aria-busy', 'false');

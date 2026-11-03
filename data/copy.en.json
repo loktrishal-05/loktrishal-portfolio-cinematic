@@ -748,12 +748,64 @@
     "downloadResume": "Download Resume",
     "awardsHeading": "Awards",
     "awardsDescription": "Recent competition wins, from the credentials below.",
-    "outcome": "Outcome"
+    "outcome": "Outcome",
+    "dashHeading": "Portfolio dashboard.",
+    "dashDescription": "Click a filter or a bar to slice every chart.",
+    "dashDomain": "Project domain",
+    "dashType": "Credential type",
+    "dashProjects": "Projects",
+    "dashCredentials": "Credentials",
+    "dashAwards": "Awards",
+    "dashSkills": "Skills listed",
+    "dashByDomain": "Projects by domain",
+    "dashByType": "Credentials by type",
+    "dashBySkill": "Skills by group",
+    "dashTimeline": "Credentials by month",
+    "dashUndated": "Credentials without a stated date are not plotted.",
+    "dashProjectList": "Projects in view",
+    "dashResults": "Reported model results (from project READMEs)",
+    "dashAllTypes": "All types"
   },
   "meta": {
     "title": "AI & Full Stack Developer | B.Tech AI & Data Science",
     "description": "Loktrishal K — AI & Full Stack Developer and B.Tech AI & Data Science student in Chennai. Projects in AI, machine learning and full-stack development, plus certifications and hackathon awards.",
     "language": "en",
     "contentSnapshot": "2026-11-02"
+  },
+  "dashboard": {
+    "results": [
+      {
+        "title": "Solarda: plant-disease accuracy",
+        "unit": "%",
+        "max": 100,
+        "rows": [
+          [
+            "PlantVillage (lab)",
+            98.2
+          ],
+          [
+            "PlantDoc (field photos)",
+            61
+          ]
+        ],
+        "source": "Source: Solar-Da README. The model abstains on 60% of field photos."
+      },
+      {
+        "title": "ExoDetect: test AUC-PR",
+        "unit": "",
+        "max": 1,
+        "rows": [
+          [
+            "v1 high-SNR sample",
+            1
+          ],
+          [
+            "Without depth and SNR features",
+            0.913
+          ]
+        ],
+        "source": "Source: exoplanet-detection README. v1 sample of 400 stars; the v2 SNR-stratified benchmark is pending."
+      }
+    ]
   }
 }
