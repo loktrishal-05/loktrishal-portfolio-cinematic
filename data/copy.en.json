@@ -76,6 +76,10 @@
         "SQL / PostgreSQL / MongoDB"
       ],
       [
+        "community",
+        "Zoho Catalyst ambassador"
+      ],
+      [
         "status",
         "Open to opportunities"
       ]
@@ -92,7 +96,8 @@
     "points": [
       "B.Tech in Artificial Intelligence & Data Science, R.M.K. College of Engineering & Technology.",
       "Building AI agents, machine-learning systems and full-stack applications.",
-      "Exploring healthcare, agriculture, space science and document intelligence."
+      "Exploring healthcare, agriculture, space science and document intelligence.",
+      "Ambassador, Zoho Catalyst program."
     ],
     "objective": "B.Tech AI & Data Science student (CGPA 8.0) who builds agent workflows, ML pipelines and the web apps around them. Recent work: farm agents behind a safety gate, a seven-language healthcare navigator and an exoplanet classifier that runs in the browser. Looking for an AI or full-stack internship."
   },
